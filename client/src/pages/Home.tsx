@@ -8,6 +8,9 @@ import { useEffect, useRef, useState } from "react";
 import ship1 from "@assets/generated_images/Minimalist_ship_icon_1_8de382ac.png";
 import ship2 from "@assets/generated_images/Minimalist_ship_icon_2_4f5e5eec.png";
 import ship3 from "@assets/generated_images/Minimalist_ship_icon_3_0ae02f83.png";
+import heroCargoShip from "@assets/stock_images/modern_cargo_ship_or_58844899.jpg";
+import bridgeCrew from "@assets/stock_images/ship_captain_or_crew_d8b62682.jpg";
+import fleetView from "@assets/stock_images/multiple_cargo_ships_a133d501.jpg";
 
 export default function Home() {
   const [countersVisible, setCountersVisible] = useState(false);
@@ -60,7 +63,11 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        <div className="absolute inset-0 maritime-gradient" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroCargoShip})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/85 via-slate-900/80 to-blue-900/85" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 gradient-circle animate-glow-pulse rounded-full" />
         
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
@@ -208,10 +215,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 maritime-gradient relative" ref={countersRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative overflow-hidden" ref={countersRef}>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${fleetView})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-950/85 to-slate-900/90" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-experience">
+            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4 text-white drop-shadow-lg" data-testid="heading-experience">
               Experience & Numbers
             </h2>
           </div>
@@ -237,13 +249,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-background relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${bridgeCrew})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-slate-900/85 to-blue-900/90" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-fresh-vision">
+            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4 text-white drop-shadow-lg" data-testid="heading-fresh-vision">
               Fresh Vision
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto drop-shadow-md">
               Combining 10+ years of maritime expertise with modern processes, transparent communication, and technology-driven solutions
             </p>
           </div>
