@@ -1,9 +1,13 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import FloatingShips from "@/components/FloatingShips";
-import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones } from "lucide-react";
+import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones, Anchor } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ship1 from "@assets/generated_images/Minimalist_ship_icon_1_8de382ac.png";
+import ship2 from "@assets/generated_images/Minimalist_ship_icon_2_4f5e5eec.png";
+import ship3 from "@assets/generated_images/Minimalist_ship_icon_3_0ae02f83.png";
 
 export default function Home() {
   const [countersVisible, setCountersVisible] = useState(false);
@@ -58,25 +62,142 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 maritime-gradient" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 gradient-circle animate-glow-pulse rounded-full" />
-        <FloatingShips />
+        
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
+          <img
+            src={ship1}
+            alt=""
+            className="absolute top-20 left-10 w-32 h-32 animate-float-ship"
+            style={{ animationDelay: '0s' }}
+          />
+          <img
+            src={ship2}
+            alt=""
+            className="absolute top-32 right-16 w-40 h-40 animate-float-ship"
+            style={{ animationDelay: '3s' }}
+          />
+          <img
+            src={ship3}
+            alt=""
+            className="absolute bottom-32 left-20 w-36 h-36 animate-float-ship"
+            style={{ animationDelay: '6s' }}
+          />
+          <img
+            src={ship1}
+            alt=""
+            className="absolute bottom-20 right-10 w-28 h-28 animate-float-ship"
+            style={{ animationDelay: '9s' }}
+          />
+        </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card p-8 sm:p-12 rounded-3xl">
-            <h1 className="font-headline text-4xl sm:text-6xl font-bold uppercase mb-6 text-primary" data-testid="text-hero-tagline">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="mb-6 text-base px-6 py-2">
+              <Anchor className="w-4 h-4 mr-2" />
+              Fresh Vision in Maritime Crewing
+            </Badge>
+            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-primary" data-testid="text-hero-tagline">
               Crewing with Care
             </h1>
-            <p className="text-lg sm:text-xl mb-8 text-foreground max-w-2xl mx-auto" data-testid="text-hero-subtitle">
-              Reliable, long-term crewing partner for tanker and bulk fleets
+            <p className="text-xl sm:text-2xl mb-6 text-foreground max-w-3xl mx-auto font-medium" data-testid="text-hero-subtitle">
+              Your reliable, long-term partner for tanker and bulk carrier crew management
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
+            <Card className="glass-card hover-elevate" data-testid="card-hero-shipowners">
+              <CardHeader>
+                <Ship className="w-12 h-12 mb-4 text-primary mx-auto" />
+                <CardTitle className="font-headline text-xl text-center">For Ship-Owners</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>500+ qualified officers & ratings</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>24/7 crew change support</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Full compliance & documentation</span>
+                  </li>
+                </ul>
+                <Link href="/ship-owners">
+                  <Button className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" data-testid="button-hero-owners">
+                    Learn More
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover-elevate border-2 border-primary/30" data-testid="card-hero-experience">
+              <CardHeader>
+                <Award className="w-12 h-12 mb-4 text-primary mx-auto" />
+                <CardTitle className="font-headline text-xl text-center">10+ Years Experience</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-center text-muted-foreground mb-4">
+                  Specialized in tanker and bulk carrier operations
+                </p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Oil/Chemical Tankers</span>
+                    <Badge variant="secondary">Expert</Badge>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Product Tankers</span>
+                    <Badge variant="secondary">Expert</Badge>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-muted-foreground">Bulk Carriers</span>
+                    <Badge variant="secondary">Expert</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card hover-elevate" data-testid="card-hero-seafarers">
+              <CardHeader>
+                <Users className="w-12 h-12 mb-4 text-primary mx-auto" />
+                <CardTitle className="font-headline text-xl text-center">For Seafarers</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Fair contracts, no hidden terms</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Reliable, on-time payments</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Career support & training</span>
+                  </li>
+                </ul>
+                <Link href="/seafarers">
+                  <Button className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" data-testid="button-hero-seafarers">
+                    Learn More
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/ship-owners">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8" data-testid="button-for-ship-owners">
-                  For Ship-Owners
+              <Link href="/vacancies">
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-10" data-testid="button-hero-vacancies">
+                  View Current Vacancies
                 </Button>
               </Link>
-              <Link href="/seafarers">
-                <Button size="lg" variant="outline" className="text-lg px-8 glass-card border-2" data-testid="button-for-seafarers">
-                  For Seafarers
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="text-lg px-10 glass-card border-2" data-testid="button-hero-contact">
+                  Get in Touch
                 </Button>
               </Link>
             </div>
