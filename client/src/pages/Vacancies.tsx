@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
+import marineOfficer from "@assets/stock_images/marine_engineer_offi_4366b328.jpg";
 
 export default function Vacancies() {
   const [selectedVacancy, setSelectedVacancy] = useState<string | null>(null);
@@ -84,15 +85,20 @@ export default function Vacancies() {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="maritime-gradient py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-vacancies">
+      <section className="py-24 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${marineOfficer})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-vacancies">
             Current Vacancies
           </h1>
-          <p className="text-xl text-muted-foreground mb-4">
+          <p className="text-xl text-gray-200 mb-4 drop-shadow-md">
             Join our partner fleets on tanker and bulk carrier vessels
           </p>
-          <p className="text-lg text-foreground">
+          <p className="text-lg text-gray-100 drop-shadow-md">
             Review our current openings below and submit your application for positions matching your qualifications
           </p>
         </div>

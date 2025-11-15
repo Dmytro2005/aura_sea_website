@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Shield, Users, FileCheck, Headphones, Clock, CheckCircle, Ship, TrendingUp } from "lucide-react";
+import portShips from "@assets/stock_images/maritime_shipping_po_c83c1900.jpg";
 
 export default function ShipOwners() {
   const processSteps = [
@@ -34,15 +35,20 @@ export default function ShipOwners() {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="maritime-gradient py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-ship-owners">
+      <section className="py-24 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${portShips})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-ship-owners">
             For Ship-Owners
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-gray-200 mb-8 drop-shadow-md">
             Your reliable, long-term crewing partner for tanker and bulk fleets
           </p>
-          <p className="text-lg text-foreground">
+          <p className="text-lg text-gray-100 drop-shadow-md">
             AURA SEA provides comprehensive crew management solutions that reduce your operational complexity while ensuring you have qualified, reliable crew members when and where you need them.
           </p>
         </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { CheckCircle, DollarSign, TrendingUp, Shield, Users, FileText, Anchor, Award } from "lucide-react";
+import seafarerCrew from "@assets/stock_images/seafarer_crew_workin_81b3ed0a.jpg";
 
 export default function Seafarers() {
   const applicationSteps = [
@@ -34,15 +35,20 @@ export default function Seafarers() {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="maritime-gradient py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-seafarers">
+      <section className="py-24 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${seafarerCrew})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-seafarers">
             For Seafarers
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-xl text-gray-200 mb-8 drop-shadow-md">
             Transparent contracts, timely payments, and real career growth
           </p>
-          <p className="text-lg text-foreground">
+          <p className="text-lg text-gray-100 drop-shadow-md">
             Join AURA SEA and work with reputable ship-owners on modern tanker and bulk carrier fleets while building a rewarding maritime career
           </p>
         </div>

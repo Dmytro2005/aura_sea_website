@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import officeHandshake from "@assets/stock_images/professional_maritim_d6b8186a.jpg";
 
 export default function Contact() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -41,15 +42,20 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="maritime-gradient py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-contact">
+      <section className="py-24 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${officeHandshake})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-contact">
             Contact AURA SEA
           </h1>
-          <p className="text-xl text-muted-foreground mb-4">
+          <p className="text-xl text-gray-200 mb-4 drop-shadow-md">
             Get in touch with our team
           </p>
-          <p className="text-lg text-foreground">
+          <p className="text-lg text-gray-100 drop-shadow-md">
             Whether you're a ship-owner looking for reliable crew management or a seafarer interested in opportunities, we're here to help
           </p>
         </div>
