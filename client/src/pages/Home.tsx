@@ -103,10 +103,10 @@ export default function Home() {
               <Anchor className="w-4 h-4 mr-2" />
               Fresh Vision in Maritime Crewing
             </Badge>
-            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-primary drop-shadow-lg" data-testid="text-hero-tagline">
+            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-white drop-shadow-lg" data-testid="text-hero-tagline">
               Crewing with Care
             </h1>
-            <p className="text-xl sm:text-2xl mb-6 text-foreground max-w-3xl mx-auto font-medium drop-shadow-md" data-testid="text-hero-subtitle">
+            <p className="text-xl sm:text-2xl mb-6 text-gray-200 max-w-3xl mx-auto font-medium drop-shadow-md" data-testid="text-hero-subtitle">
               Your reliable, long-term partner for tanker and bulk carrier crew management
             </p>
           </div>
