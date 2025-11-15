@@ -208,6 +208,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-24 maritime-gradient relative" ref={countersRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-experience">
+              Experience & Numbers
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
+              <Counter end={10} suffix="+" />
+              <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
+            </Card>
+
+            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
+              <Counter end={500} suffix="+" />
+              <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
+            </Card>
+
+            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
+              <div className="flex items-center justify-center gap-2">
+                <Ship className="w-12 h-12 text-primary" />
+              </div>
+              <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-background relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -373,35 +402,6 @@ export default function Home() {
                 Learn More About Opportunities
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 maritime-gradient relative" ref={countersRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-experience">
-              Experience & Numbers
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
-              <Counter end={10} suffix="+" />
-              <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
-            </Card>
-
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
-              <Counter end={500} suffix="+" />
-              <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
-            </Card>
-
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
-              <div className="flex items-center justify-center gap-2">
-                <Ship className="w-12 h-12 text-primary" />
-              </div>
-              <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
-            </Card>
           </div>
         </div>
       </section>
