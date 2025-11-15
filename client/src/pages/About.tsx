@@ -16,9 +16,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
+      <section className="py-16 maritime-gradient">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="glass-card p-8 sm:p-12 mb-16">
+          <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-our-story">
               Our Story
             </h2>

@@ -48,7 +48,7 @@ export default function Seafarers() {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
+      <section className="py-16 maritime-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-headline text-3xl font-bold text-center mb-12" data-testid="heading-what-we-offer-you">
             What We Offer to You
@@ -202,25 +202,28 @@ export default function Seafarers() {
             </div>
           </Card>
 
-          <Card className="glass-card p-12 text-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
-            <Anchor className="w-16 h-16 mx-auto mb-6 text-primary" />
-            <h3 className="font-headline text-2xl font-bold mb-4" data-testid="heading-cta-check-vacancies">
-              Ready to Start Your Journey?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Check our current vacancies or get in touch to learn more about opportunities with AURA SEA
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/vacancies">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" data-testid="button-view-vacancies">
-                  View Vacancies
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="glass-card border-2" data-testid="button-contact-seafarers">
-                  Contact Us
-                </Button>
-              </Link>
+          <Card className="glass-premium p-12 text-center border-2 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent"></div>
+            <div className="relative z-10">
+              <Anchor className="w-16 h-16 mx-auto mb-6 text-primary drop-shadow-lg" />
+              <h3 className="font-headline text-2xl font-bold mb-4" data-testid="heading-cta-check-vacancies">
+                Ready to Start Your Journey?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Check our current vacancies or get in touch to learn more about opportunities with AURA SEA
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/vacancies">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg" data-testid="button-view-vacancies">
+                    View Vacancies
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="glass-card border-2" data-testid="button-contact-seafarers">
+                    Contact Us
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Card>
         </div>

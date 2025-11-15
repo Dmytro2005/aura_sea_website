@@ -48,13 +48,13 @@ export default function ShipOwners() {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
+      <section className="py-16 maritime-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-headline text-3xl font-bold text-center mb-12" data-testid="heading-what-we-offer">
             What We Offer
           </h2>
           
-          <Card className="glass-card p-8 mb-16">
+          <Card className="glass-premium p-8 mb-16 border-2">
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground text-lg mb-6">
                 AURA SEA specializes in crew management for tanker and bulk carrier fleets, handling the entire lifecycle from initial selection through deployment and ongoing support. Our services include:
@@ -212,19 +212,22 @@ export default function ShipOwners() {
             </Card>
           </div>
 
-          <Card className="glass-card p-12 text-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950">
-            <Ship className="w-16 h-16 mx-auto mb-6 text-primary" />
-            <h3 className="font-headline text-2xl font-bold mb-4" data-testid="heading-cta-discuss">
-              Let's Discuss Your Crewing Needs
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Contact us today to learn how AURA SEA can become your reliable crewing partner
-            </p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" data-testid="button-contact-ship-owners">
-                Get in Touch
-              </Button>
-            </Link>
+          <Card className="glass-premium p-12 text-center border-2 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent"></div>
+            <div className="relative z-10">
+              <Ship className="w-16 h-16 mx-auto mb-6 text-primary drop-shadow-lg" />
+              <h3 className="font-headline text-2xl font-bold mb-4" data-testid="heading-cta-discuss">
+                Let's Discuss Your Crewing Needs
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Contact us today to learn how AURA SEA can become your reliable crewing partner
+              </p>
+              <Link href="/contact">
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg" data-testid="button-contact-ship-owners">
+                  Get in Touch
+                </Button>
+              </Link>
+            </div>
           </Card>
         </div>
       </section>

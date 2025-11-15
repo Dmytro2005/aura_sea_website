@@ -9,12 +9,12 @@
   --opaque-button-border-intensity: -8;
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
-  --background: 210 40% 98%;
+  --background: 200 30% 96%;
   --foreground: 215 25% 15%;
-  --border: 210 30% 88%;
-  --card: 210 35% 96%;
+  --border: 210 30% 85%;
+  --card: 210 35% 94%;
   --card-foreground: 215 25% 18%;
-  --card-border: 210 30% 90%;
+  --card-border: 210 30% 88%;
   --sidebar: 210 35% 94%;
   --sidebar-foreground: 215 25% 20%;
   --sidebar-border: 210 30% 86%;
@@ -48,14 +48,14 @@
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(210 30% 45% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(210 30% 45% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(210 30% 45% / 0.00), 0px 1px 2px -1px hsl(210 30% 45% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(210 30% 45% / 0.00), 0px 1px 2px -1px hsl(210 30% 45% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(210 30% 45% / 0.00), 0px 2px 4px -1px hsl(210 30% 45% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(210 30% 45% / 0.00), 0px 4px 6px -1px hsl(210 30% 45% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(210 30% 45% / 0.00), 0px 8px 10px -1px hsl(210 30% 45% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(210 30% 45% / 0.00);
+  --shadow-2xs: 0px 1px 2px hsl(210 30% 45% / 0.04);
+  --shadow-xs: 0px 1px 3px hsl(210 30% 45% / 0.06);
+  --shadow-sm: 0px 2px 4px hsl(210 30% 45% / 0.08), 0px 1px 2px hsl(210 30% 45% / 0.04);
+  --shadow: 0px 4px 8px hsl(210 30% 45% / 0.10), 0px 2px 4px hsl(210 30% 45% / 0.06);
+  --shadow-md: 0px 6px 12px hsl(210 30% 45% / 0.12), 0px 2px 6px hsl(210 30% 45% / 0.08);
+  --shadow-lg: 0px 10px 20px hsl(210 30% 45% / 0.14), 0px 4px 8px hsl(210 30% 45% / 0.10);
+  --shadow-xl: 0px 15px 30px hsl(210 30% 45% / 0.16), 0px 6px 12px hsl(210 30% 45% / 0.12);
+  --shadow-2xl: 0px 25px 50px hsl(210 30% 45% / 0.20), 0px 10px 20px hsl(210 30% 45% / 0.14);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -287,45 +287,99 @@
     inset: -1px;
   }
 
-  /* Maritime glassmorphism effects */
+  /* Enhanced Maritime Glassmorphism */
   .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.08),
+      0 2px 8px rgba(31, 38, 135, 0.04),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6);
   }
 
   .dark .glass-card {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(20, 30, 48, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
   }
 
   .glass-header {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+      0 4px 16px rgba(31, 38, 135, 0.06),
+      inset 0 1px 1px rgba(255, 255, 255, 0.7);
   }
 
   .dark .glass-header {
-    background: rgba(30, 41, 59, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(20, 30, 48, 0.70);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
   }
 
-  /* Maritime gradient background */
+  /* Premium glass variants */
+  .glass-premium {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+      0 12px 40px rgba(31, 38, 135, 0.10),
+      0 4px 12px rgba(31, 38, 135, 0.06),
+      inset 0 1px 2px rgba(255, 255, 255, 0.7);
+  }
+
+  .dark .glass-premium {
+    background: rgba(20, 30, 48, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      inset 0 1px 2px rgba(255, 255, 255, 0.10);
+  }
+
+  /* Maritime gradient background - subtle and premium */
   .maritime-gradient {
-    background: linear-gradient(135deg, #e3f2fd 0%, #81d4fa 50%, #4fc3f7 100%);
+    background: linear-gradient(135deg, 
+      hsl(200, 50%, 94%) 0%, 
+      hsl(195, 60%, 88%) 30%,
+      hsl(190, 65%, 85%) 60%,
+      hsl(185, 70%, 82%) 100%);
   }
 
   .dark .maritime-gradient {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);
+    background: linear-gradient(135deg, 
+      hsl(215, 30%, 10%) 0%, 
+      hsl(210, 35%, 8%) 50%, 
+      hsl(205, 40%, 6%) 100%);
   }
 
-  /* Gradient circle for hero */
+  /* Gradient circle for hero - softer glow */
   .gradient-circle {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4facfe 100%);
-    filter: blur(100px);
-    opacity: 0.5;
+    background: linear-gradient(135deg, 
+      hsl(220, 80%, 70%) 0%, 
+      hsl(200, 90%, 65%) 50%, 
+      hsl(180, 85%, 70%) 100%);
+    filter: blur(120px);
+    opacity: 0.35;
+  }
+
+  .dark .gradient-circle {
+    background: linear-gradient(135deg, 
+      hsl(220, 70%, 40%) 0%, 
+      hsl(200, 80%, 35%) 50%, 
+      hsl(180, 75%, 40%) 100%);
+    filter: blur(120px);
+    opacity: 0.25;
   }
 
   /* Animation keyframes */

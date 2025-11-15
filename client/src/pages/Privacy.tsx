@@ -14,9 +14,9 @@ export default function Privacy() {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
+      <section className="py-16 maritime-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="glass-card">
+          <Card className="glass-premium border-2">
             <CardContent className="p-8 sm:p-12 prose prose-lg max-w-none">
               <h2 className="font-headline text-2xl font-bold mb-4">1. Introduction</h2>
               <p className="text-muted-foreground mb-6">

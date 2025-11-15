@@ -92,14 +92,14 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="mb-6 text-base px-6 py-2">
+            <Badge variant="secondary" className="mb-6 text-base px-6 py-2 glass-card">
               <Anchor className="w-4 h-4 mr-2" />
               Fresh Vision in Maritime Crewing
             </Badge>
-            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-primary" data-testid="text-hero-tagline">
+            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-primary drop-shadow-lg" data-testid="text-hero-tagline">
               Crewing with Care
             </h1>
-            <p className="text-xl sm:text-2xl mb-6 text-foreground max-w-3xl mx-auto font-medium" data-testid="text-hero-subtitle">
+            <p className="text-xl sm:text-2xl mb-6 text-foreground max-w-3xl mx-auto font-medium drop-shadow-md" data-testid="text-hero-subtitle">
               Your reliable, long-term partner for tanker and bulk carrier crew management
             </p>
           </div>
@@ -133,9 +133,12 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="glass-card hover-elevate border-2 border-primary/30" data-testid="card-hero-experience">
+            <Card className="glass-premium hover-elevate border-2 border-primary/40" data-testid="card-hero-experience">
               <CardHeader>
-                <Award className="w-12 h-12 mb-4 text-primary mx-auto" />
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-xl"></div>
+                  <Award className="relative w-12 h-12 mb-4 text-primary mx-auto" />
+                </div>
                 <CardTitle className="font-headline text-xl text-center">10+ Years Experience</CardTitle>
               </CardHeader>
               <CardContent>
@@ -145,15 +148,15 @@ export default function Home() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">Oil/Chemical Tankers</span>
-                    <Badge variant="secondary">Expert</Badge>
+                    <Badge variant="secondary" className="glass-card">Expert</Badge>
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">Product Tankers</span>
-                    <Badge variant="secondary">Expert</Badge>
+                    <Badge variant="secondary" className="glass-card">Expert</Badge>
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">Bulk Carriers</span>
-                    <Badge variant="secondary">Expert</Badge>
+                    <Badge variant="secondary" className="glass-card">Expert</Badge>
                   </div>
                 </div>
               </CardContent>
@@ -403,9 +406,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Card className="glass-card p-12">
+      <section className="py-16 maritime-gradient relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <Card className="glass-premium p-12 border-2">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-cta">
               Ready to Partner with AURA SEA?
             </h2>
@@ -413,7 +417,7 @@ export default function Home() {
               Let's discuss how we can support your crewing needs or advance your maritime career
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8" data-testid="button-contact-aura-sea">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 shadow-lg" data-testid="button-contact-aura-sea">
                 Contact AURA SEA
               </Button>
             </Link>
