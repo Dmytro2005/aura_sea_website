@@ -320,7 +320,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-24 bg-background relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[0px] mb-[0px] pt-[24px] pb-[24px]">
           <div className="text-center mb-16">
             <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-seafarers-why">
               For Seafarers – Why AURA SEA?
