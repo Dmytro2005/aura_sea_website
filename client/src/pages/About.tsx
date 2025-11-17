@@ -20,8 +20,7 @@ export default function About() {
           </p>
         </div>
       </section>
-
-      <section className="py-16 maritime-gradient">
+      <section className="py-16 maritime-gradient pl-[24px] pr-[24px]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-our-story">
