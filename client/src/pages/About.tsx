@@ -7,7 +7,6 @@ export default function About() {
     <div className="min-h-screen pt-24 pb-16">
       <section className="py-32 relative overflow-hidden maritime-gradient">
         <div className="absolute inset-0 overflow-hidden pl-[24px] pr-[24px] pt-[24px] pb-[24px]">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
         </div>
@@ -22,23 +21,6 @@ export default function About() {
       </section>
       <section className="py-16 maritime-gradient pl-[24px] pr-[24px]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-our-story">
-              Our Story
-            </h2>
-            <div className="prose prose-lg max-w-none text-foreground">
-              <p className="text-muted-foreground mb-4">
-                AURA SEA was founded on a simple principle: maritime crewing should be built on trust, transparency, and genuine care for both ship-owners and seafarers. With over 10 years of combined maritime experience, our leadership team recognized the need for a modern approach to crew management.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                We specialize in providing qualified officers and ratings for tanker and bulk carrier fleets, leveraging our extensive database of 500+ experienced seafarers. Our "Fresh Vision" combines traditional maritime expertise with modern technology and processes, creating efficient, transparent operations that benefit everyone involved.
-              </p>
-              <p className="text-muted-foreground">
-                Today, AURA SEA is more than a crewing agency – we're a growing holding company committed to continuous development and innovation in maritime services. We're building long-term partnerships that create value for ship-owners while advancing the careers of seafarers.
-              </p>
-            </div>
-          </Card>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <Card className="glass-card text-center hover-elevate" data-testid="card-mission">
               <CardHeader>
@@ -76,7 +58,22 @@ export default function About() {
               </CardContent>
             </Card>
           </div>
-
+          <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-our-story">
+              Our Story
+            </h2>
+            <div className="prose prose-lg max-w-none text-foreground">
+              <p className="text-muted-foreground mb-4">
+                AURA SEA was founded on a simple principle: maritime crewing should be built on trust, transparency, and genuine care for both ship-owners and seafarers. With over 10 years of combined maritime experience, our leadership team recognized the need for a modern approach to crew management.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                We specialize in providing qualified officers and ratings for tanker and bulk carrier fleets, leveraging our extensive database of 500+ experienced seafarers. Our "Fresh Vision" combines traditional maritime expertise with modern technology and processes, creating efficient, transparent operations that benefit everyone involved.
+              </p>
+              <p className="text-muted-foreground">
+                Today, AURA SEA is more than a crewing agency – we're a growing holding company committed to continuous development and innovation in maritime services. We're building long-term partnerships that create value for ship-owners while advancing the careers of seafarers.
+              </p>
+            </div>
+          </Card>
           <div className="mb-16 pt-[24px] pb-[24px]">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center" data-testid="heading-core-values">
               Our Core Values
