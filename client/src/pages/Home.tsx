@@ -63,7 +63,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '4s' }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[100px] pb-[100px]">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-6 text-base px-6 py-2 glass-card">
               <Anchor className="w-4 h-4 mr-2" />
@@ -207,7 +207,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="py-24 relative overflow-hidden maritime-gradient">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
@@ -262,7 +261,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="py-24 maritime-gradient relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -321,7 +319,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="py-24 bg-background relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -380,7 +377,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="py-16 maritime-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
