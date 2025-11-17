@@ -164,33 +164,6 @@ export default function Home() {
             </Card>
           </div>
 
-          <div className="mt-16 mb-12" ref={countersRef}>
-            <div className="text-center mb-12">
-              <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-2" data-testid="heading-experience">
-                Experience & Numbers
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
-                <Counter end={10} suffix="+" />
-                <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
-              </Card>
-
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
-                <Counter end={500} suffix="+" />
-                <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
-              </Card>
-
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
-                <div className="flex items-center justify-center gap-2">
-                  <Ship className="w-12 h-12 text-primary" />
-                </div>
-                <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
-              </Card>
-            </div>
-          </div>
-
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/vacancies">
