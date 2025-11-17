@@ -5,12 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import FloatingShips from "@/components/FloatingShips";
 import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones, Anchor } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ship1 from "@assets/generated_images/Minimalist_ship_icon_1_8de382ac.png";
-import ship2 from "@assets/generated_images/Minimalist_ship_icon_2_4f5e5eec.png";
-import ship3 from "@assets/generated_images/Minimalist_ship_icon_3_0ae02f83.png";
-import heroCargoShip from "@assets/stock_images/modern_cargo_ship_or_58844899.jpg";
-import bridgeCrew from "@assets/stock_images/ship_captain_or_crew_d8b62682.jpg";
-import fleetView from "@assets/stock_images/multiple_cargo_ships_a133d501.jpg";
 
 export default function Home() {
   const [countersVisible, setCountersVisible] = useState(false);
@@ -62,39 +56,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroCargoShip})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/85 via-slate-900/80 to-blue-900/85" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 gradient-circle animate-glow-pulse rounded-full" />
-        
-        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-          <img
-            src={ship1}
-            alt=""
-            className="absolute top-20 left-10 w-32 h-32 animate-float-ship"
-            style={{ animationDelay: '0s' }}
-          />
-          <img
-            src={ship2}
-            alt=""
-            className="absolute top-32 right-16 w-40 h-40 animate-float-ship"
-            style={{ animationDelay: '3s' }}
-          />
-          <img
-            src={ship3}
-            alt=""
-            className="absolute bottom-32 left-20 w-36 h-36 animate-float-ship"
-            style={{ animationDelay: '6s' }}
-          />
-          <img
-            src={ship1}
-            alt=""
-            className="absolute bottom-20 right-10 w-28 h-28 animate-float-ship"
-            style={{ animationDelay: '9s' }}
-          />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 maritime-gradient">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-glow-pulse" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '4s' }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,10 +69,10 @@ export default function Home() {
               <Anchor className="w-4 h-4 mr-2" />
               Fresh Vision in Maritime Crewing
             </Badge>
-            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-white drop-shadow-lg" data-testid="text-hero-tagline">
+            <h1 className="font-headline text-5xl sm:text-7xl font-bold uppercase mb-8 text-primary" data-testid="text-hero-tagline">
               Crewing with Care
             </h1>
-            <p className="text-xl sm:text-2xl mb-6 text-gray-200 max-w-3xl mx-auto font-medium drop-shadow-md" data-testid="text-hero-subtitle">
+            <p className="text-xl sm:text-2xl mb-6 text-foreground max-w-3xl mx-auto font-medium" data-testid="text-hero-subtitle">
               Your reliable, long-term partner for tanker and bulk carrier crew management
             </p>
           </div>
@@ -198,6 +164,33 @@ export default function Home() {
             </Card>
           </div>
 
+          <div className="mt-16 mb-12" ref={countersRef}>
+            <div className="text-center mb-12">
+              <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-2" data-testid="heading-experience">
+                Experience & Numbers
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
+                <Counter end={10} suffix="+" />
+                <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
+              </Card>
+
+              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
+                <Counter end={500} suffix="+" />
+                <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
+              </Card>
+
+              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
+                <div className="flex items-center justify-center gap-2">
+                  <Ship className="w-12 h-12 text-primary" />
+                </div>
+                <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
+              </Card>
+            </div>
+          </div>
+
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/vacancies">
@@ -215,52 +208,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 relative overflow-hidden" ref={countersRef}>
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${fleetView})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-950/85 to-slate-900/90" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4 text-white drop-shadow-lg" data-testid="heading-experience">
-              Experience & Numbers
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
-              <Counter end={10} suffix="+" />
-              <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
-            </Card>
-
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
-              <Counter end={500} suffix="+" />
-              <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
-            </Card>
-
-            <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
-              <div className="flex items-center justify-center gap-2">
-                <Ship className="w-12 h-12 text-primary" />
-              </div>
-              <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
-            </Card>
-          </div>
+      <section className="py-24 relative overflow-hidden maritime-gradient">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
         </div>
-      </section>
-
-      <section className="py-24 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${bridgeCrew})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-slate-900/85 to-blue-900/90" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4 text-white drop-shadow-lg" data-testid="heading-fresh-vision">
+            <h2 className="font-headline text-3xl sm:text-4xl font-bold mb-4" data-testid="heading-fresh-vision">
               Fresh Vision
             </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Combining 10+ years of maritime expertise with modern processes, transparent communication, and technology-driven solutions
             </p>
           </div>

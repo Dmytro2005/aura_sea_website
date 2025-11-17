@@ -1,22 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Heart, TrendingUp, Users, Target, Award } from "lucide-react";
-import portOperations from "@assets/stock_images/maritime_shipping_po_c83c1900.jpg";
 
 export default function About() {
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="py-24 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${portOperations})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-about">
+      <section className="py-32 relative overflow-hidden maritime-gradient">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-8">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-about">
             About AURA SEA
           </h1>
-          <p className="text-lg text-gray-200 drop-shadow-md">
+          <p className="text-lg text-muted-foreground">
             Building the future of maritime crewing through expertise, innovation, and care
           </p>
         </div>
