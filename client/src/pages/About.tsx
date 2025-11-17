@@ -5,8 +5,10 @@ import { Shield, Heart, TrendingUp, Users, Target, Award } from "lucide-react";
 export default function About() {
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <section className="py-32 relative overflow-hidden maritime-gradient">
+      <section className="py-32 relative overflow-hidden maritime-gradient" >
         <div className="absolute inset-0 overflow-hidden">
+          <img src="./attached_assets/stock_images/65ca05c73a25845ec8bad8b7_Crew Management (2).jpg" 
+            alt="Maritime background" className="w-full h-full object-cover opacity-30" />
           <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
