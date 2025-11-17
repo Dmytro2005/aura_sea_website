@@ -77,7 +77,7 @@ export default function About() {
             </Card>
           </div>
 
-          <div className="mb-16">
+          <div className="mb-16 pt-[24px] pb-[24px]">
             <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center" data-testid="heading-core-values">
               Our Core Values
             </h2>
