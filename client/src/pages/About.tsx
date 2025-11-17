@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <section className="py-32 relative overflow-hidden maritime-gradient">
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pl-[24px] pr-[24px] pt-[24px] pb-[24px]">
           <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
