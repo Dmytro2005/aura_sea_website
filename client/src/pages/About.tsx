@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <section className="py-32 relative overflow-hidden maritime-gradient">
-        <div className="absolute inset-0 overflow-hidden pl-[24px] pr-[24px] pt-[24px] pb-[24px]">
+        <div className="absolute inset-0 overflow-hidden">
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
         </div>
@@ -19,7 +19,8 @@ export default function About() {
           </p>
         </div>
       </section>
-      <section className="py-16 maritime-gradient pl-[24px] pr-[24px]">
+
+      <section className="py-16 maritime-gradient">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <Card className="glass-card text-center hover-elevate" data-testid="card-mission">
@@ -58,8 +59,12 @@ export default function About() {
               </CardContent>
             </Card>
           </div>
+
           <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-our-story">
+            <h2
+              className="font-headline text-2xl sm:text-3xl font-bold mb-6"
+              data-testid="heading-our-story"
+            >
               Our Story
             </h2>
             <div className="prose prose-lg max-w-none text-foreground">
@@ -74,8 +79,12 @@ export default function About() {
               </p>
             </div>
           </Card>
+
           <div className="pt-[24px] pb-[24px] mt-[64px] mb-[64px]">
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center" data-testid="heading-core-values">
+            <h2
+              className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center"
+              data-testid="heading-core-values"
+            >
               Our Core Values
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -130,7 +139,10 @@ export default function About() {
           </div>
 
           <div>
-            <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center" data-testid="heading-leadership">
+            <h2
+              className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center"
+              data-testid="heading-leadership"
+            >
               Leadership Team
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -140,7 +152,9 @@ export default function About() {
                     <Users className="w-12 h-12 text-white" />
                   </div>
                   <CardTitle className="font-headline">Managing Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">Leadership</Badge>
+                  <Badge variant="secondary" className="mt-2 mx-auto">
+                    Leadership
+                  </Badge>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
@@ -155,7 +169,9 @@ export default function About() {
                     <Target className="w-12 h-12 text-white" />
                   </div>
                   <CardTitle className="font-headline">Operations Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">Operations</Badge>
+                  <Badge variant="secondary" className="mt-2 mx-auto">
+                    Operations
+                  </Badge>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
@@ -170,7 +186,9 @@ export default function About() {
                     <Heart className="w-12 h-12 text-white" />
                   </div>
                   <CardTitle className="font-headline">HR Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">Human Resources</Badge>
+                  <Badge variant="secondary" className="mt-2 mx-auto">
+                    Human Resources
+                  </Badge>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">

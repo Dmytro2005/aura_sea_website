@@ -4,56 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import FloatingShips from "@/components/FloatingShips";
 import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones, Anchor } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const [countersVisible, setCountersVisible] = useState(false);
-  const countersRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setCountersVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (countersRef.current) {
-      observer.observe(countersRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const Counter = ({ end, suffix, duration = 2000 }: { end: number; suffix: string; duration?: number }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!countersVisible) return;
-
-      let startTime: number;
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / duration, 1);
-        setCount(Math.floor(progress * end));
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-
-      requestAnimationFrame(animate);
-    }, [countersVisible, end, duration]);
-
-    return (
-      <span className="text-4xl sm:text-5xl font-bold text-primary font-headline">
-        {count}{suffix}
-      </span>
-    );
-  };
-
   return (
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 maritime-gradient">

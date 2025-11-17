@@ -40,7 +40,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pb-16">
       <section className="py-24 relative overflow-hidden maritime-gradient">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
