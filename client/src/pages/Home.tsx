@@ -2,58 +2,9 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import FloatingShips from "@/components/FloatingShips";
 import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones, Anchor } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const [countersVisible, setCountersVisible] = useState(false);
-  const countersRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setCountersVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (countersRef.current) {
-      observer.observe(countersRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const Counter = ({ end, suffix, duration = 2000 }: { end: number; suffix: string; duration?: number }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!countersVisible) return;
-
-      let startTime: number;
-      const animate = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / duration, 1);
-        setCount(Math.floor(progress * end));
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-
-      requestAnimationFrame(animate);
-    }, [countersVisible, end, duration]);
-
-    return (
-      <span className="text-4xl sm:text-5xl font-bold text-primary font-headline">
-        {count}{suffix}
-      </span>
-    );
-  };
-
   return (
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 maritime-gradient">
@@ -162,48 +113,6 @@ export default function Home() {
                 </Link>
               </CardContent>
             </Card>
-          </div>
-
-          <div className="mt-16 mb-12" ref={countersRef}>
-            <div className="text-center mb-12">
-              <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-2" data-testid="heading-experience">
-                Experience & Numbers
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-experience">
-                <Counter end={10} suffix="+" />
-                <p className="text-lg font-semibold mt-4 text-foreground">Years Maritime Experience</p>
-              </Card>
-
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-seafarers">
-                <Counter end={500} suffix="+" />
-                <p className="text-lg font-semibold mt-4 text-foreground">Seafarers in Database</p>
-              </Card>
-
-              <Card className="glass-card text-center p-8 hover-elevate" data-testid="card-counter-specialization">
-                <div className="flex items-center justify-center gap-2">
-                  <Ship className="w-12 h-12 text-primary" />
-                </div>
-                <p className="text-lg font-semibold mt-4 text-foreground">Tanker & Bulk Fleet Specialization</p>
-              </Card>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/vacancies">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-10" data-testid="button-hero-vacancies">
-                  View Current Vacancies
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="text-lg px-10 glass-card border-2" data-testid="button-hero-contact">
-                  Get in Touch
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
