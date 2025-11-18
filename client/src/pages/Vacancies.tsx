@@ -123,7 +123,7 @@ export default function Vacancies() {
       </section>
 
       <Dialog open={selectedVacancy !== null && !showSuccess} onOpenChange={(open) => !open && setSelectedVacancy(null)}>
-        <DialogContent className="glass-card max-w-2xl max-h-[90vh] overflow-y-auto" data-testid="dialog-vacancy-application">
+        <DialogContent className="glass-card max-w-2xl max-h-[90vh] overflow-y-auto bg-[#f2f6f8]" data-testid="dialog-vacancy-application">
           <DialogHeader>
             <DialogTitle className="font-headline text-2xl">Apply for {selectedVacancy}</DialogTitle>
             <DialogDescription>
