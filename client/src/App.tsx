@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Router as WouterRouter, Switch, Route } from "wouter";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import Home from "@/pages/Home";
@@ -10,7 +10,9 @@ import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/not-found";
 
-function Router() {
+const wouterBase = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
+
+function AppRoutes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -26,10 +28,15 @@ function Router() {
 }
 
 function App() {
+  const routes = <AppRoutes />;
   return (
     <TooltipProvider>
       <Layout>
-        <Router />
+        {wouterBase ? (
+          <WouterRouter base={wouterBase}>{routes}</WouterRouter>
+        ) : (
+          routes
+        )}
       </Layout>
     </TooltipProvider>
   );
