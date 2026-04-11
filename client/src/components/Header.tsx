@@ -1,12 +1,21 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import logoImage from "@assets/generated_images/AURA_SEA_company_logo_4bfb05d5.png";
+import { useEffect, useState } from "react";
+import logoDark from "@assets/generated_images/AURA_SEA_company_logo_4bfb05d5.svg";
+import logoWhite from "@assets/generated_images/download.svg";
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -14,17 +23,25 @@ export default function Header() {
     { href: "/ship-owners", label: "For Ship-Owners" },
     { href: "/seafarers", label: "For Seafarers" },
     { href: "/vacancies", label: "Vacancies" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-header">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "header-on-light bg-white/95 border-b border-slate-200 shadow-sm"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           <Link href="/" data-testid="link-home">
-            <div className="flex items-center gap-3 hover-elevate rounded-md px-2 py-1 cursor-pointer">
-              <img src={logoImage} alt="AURA SEA Logo" className="h-10 w-auto" />
-              <span className="font-headline text-xl font-bold text-primary">AURA SEA</span>
+            <div className="flex items-center rounded-md px-2 py-1 cursor-pointer">
+              <img
+                src={isScrolled ? logoDark : logoWhite}
+                alt="AURA SEA"
+                className={`h-20 w-auto ${isScrolled ? "brightness-110" : ""}`}
+              />
             </div>
           </Link>
 
@@ -32,9 +49,17 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
                 <Button
-                  variant={location === link.href ? "default" : "ghost"}
+                  variant="ghost"
                   size="sm"
-                  className="text-sm"
+                  className={`header-nav-ghost text-base font-semibold border-0 ${
+                    location === link.href
+                      ? isScrolled
+                        ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
+                        : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                      : isScrolled
+                        ? "text-slate-700 hover:text-slate-950"
+                        : "text-white/90 hover:text-cyan-200"
+                  }`}
                 >
                   {link.label}
                 </Button>
@@ -44,7 +69,7 @@ export default function Header() {
 
           <div className="hidden md:flex">
             <Link href="/contact" data-testid="button-contact-cta">
-              <Button size="sm" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button variant="secondary" size="sm" className="font-medium">
                 Contact Us
               </Button>
             </Link>
@@ -53,7 +78,11 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className={`header-nav-ghost md:hidden ${
+              isScrolled
+                ? "text-slate-700 hover:text-slate-950"
+                : "text-white/90 hover:text-cyan-200"
+            }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -62,12 +91,26 @@ export default function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div
+            className={`md:hidden pb-4 space-y-2 rounded-xl p-2 ${
+              isScrolled
+                ? "border border-slate-200 bg-white/95 shadow-md"
+                : "border border-white/15 bg-slate-950/75 backdrop-blur-xl"
+            }`}
+          >
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button
-                  variant={location === link.href ? "default" : "ghost"}
-                  className="w-full justify-start"
+                  variant="ghost"
+                  className={`header-nav-ghost w-full justify-start text-base font-semibold border-0 ${
+                    location === link.href
+                      ? isScrolled
+                        ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
+                        : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                      : isScrolled
+                        ? "text-slate-700 hover:text-slate-950"
+                        : "text-white/90 hover:text-cyan-200"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
@@ -77,7 +120,8 @@ export default function Header() {
             ))}
             <Link href="/contact">
               <Button
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600"
+                variant="secondary"
+                className="w-full font-medium"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="mobile-button-contact"
               >

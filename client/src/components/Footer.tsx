@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="glass-card mt-24">
+    <footer className="glass-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>

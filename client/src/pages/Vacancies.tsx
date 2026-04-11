@@ -1,6 +1,5 @@
 import { useState } from "react";
 import VacancyCard from "@/components/VacancyCard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -85,21 +84,18 @@ export default function Vacancies() {
 
   return (
     <div className="min-h-screen pb-16">
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 pt-32 relative overflow-hidden min-h-[50vh] flex items-center">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${marineOfficer})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-slate-900/85 to-blue-900/88" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,30%,5%)]/90 via-[hsl(215,30%,5%)]/80 to-[hsl(215,30%,5%)]" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-lg" data-testid="heading-vacancies">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300" data-testid="heading-vacancies">
             Current Vacancies
           </h1>
-          <p className="text-xl text-gray-200 mb-4 drop-shadow-md">
+          <p className="text-xl mb-4 drop-shadow-md text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
             Join our partner fleets on tanker and bulk carrier vessels
-          </p>
-          <p className="text-lg text-gray-100 drop-shadow-md">
-            Review our current openings below and submit your application for positions matching your qualifications
           </p>
         </div>
       </section>
@@ -123,10 +119,16 @@ export default function Vacancies() {
       </section>
 
       <Dialog open={selectedVacancy !== null && !showSuccess} onOpenChange={(open) => !open && setSelectedVacancy(null)}>
-        <DialogContent className="glass-card max-w-2xl max-h-[90vh] overflow-y-auto bg-[#f2f6f8]" data-testid="dialog-vacancy-application">
+        <DialogContent
+          overlayClassName="bg-slate-950/65 backdrop-blur-sm"
+          className="max-w-2xl max-h-[90vh] overflow-y-auto border-cyan-500/25 maritime-gradient shadow-xl shadow-cyan-950/10 dark:border-cyan-500/20 dark:shadow-cyan-950/30 [&_label]:text-foreground/90 [&_input]:border-cyan-500/25 [&_input]:bg-white/85 [&_input]:focus-visible:ring-cyan-500/40 dark:[&_input]:border-cyan-500/35 dark:[&_input]:bg-slate-950/45 dark:[&_input]:focus-visible:ring-cyan-400/35 [&_textarea]:border-cyan-500/25 [&_textarea]:bg-white/85 [&_textarea]:focus-visible:ring-cyan-500/40 dark:[&_textarea]:border-cyan-500/35 dark:[&_textarea]:bg-slate-950/45 dark:[&_textarea]:focus-visible:ring-cyan-400/35"
+          data-testid="dialog-vacancy-application"
+        >
           <DialogHeader>
-            <DialogTitle className="font-headline text-2xl">Apply for {selectedVacancy}</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="font-headline text-2xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-teal-700 dark:from-cyan-300 dark:to-teal-300">
+              Apply for {selectedVacancy}
+            </DialogTitle>
+            <DialogDescription className="text-slate-600 dark:text-slate-300">
               Please fill out the application form below. We'll review your profile and contact you if you're a good fit.
             </DialogDescription>
           </DialogHeader>
@@ -219,15 +221,15 @@ export default function Vacancies() {
                 onCheckedChange={(checked) => setFormData({ ...formData, gdprConsent: checked as boolean })}
                 data-testid="checkbox-gdpr"
               />
-              <Label htmlFor="gdpr" className="text-sm leading-tight cursor-pointer">
+              <Label htmlFor="gdpr" className="text-sm leading-tight cursor-pointer text-muted-foreground">
                 I consent to AURA SEA storing and processing my personal data for recruitment purposes in accordance with the{" "}
-                <Link href="/privacy"><span className="text-primary hover:underline">Privacy Policy</span></Link>
+                <Link href="/privacy"><span className="text-cyan-700 underline-offset-2 hover:underline dark:text-cyan-400">Privacy Policy</span></Link>
               </Label>
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              className="w-full"
               data-testid="button-submit-application"
             >
               Submit Application
@@ -237,11 +239,17 @@ export default function Vacancies() {
       </Dialog>
 
       <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
-        <DialogContent className="glass-card max-w-md" data-testid="dialog-success">
+        <DialogContent
+          overlayClassName="bg-slate-950/65 backdrop-blur-sm"
+          className="max-w-md border-teal-500/25 bg-white/92 shadow-xl shadow-teal-950/10 backdrop-blur-xl dark:border-teal-500/20 dark:bg-slate-950/90"
+          data-testid="dialog-success"
+        >
           <div className="text-center py-6">
-            <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-500" />
-            <h3 className="font-headline text-2xl font-bold mb-2">Thank you for your submission</h3>
-            <p className="text-muted-foreground">
+            <CheckCircle className="w-16 h-16 mx-auto mb-4 text-teal-600 dark:text-teal-400" />
+            <h3 className="font-headline text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-teal-700 dark:from-cyan-300 dark:to-teal-300">
+              Thank you for your submission
+            </h3>
+            <p className="text-slate-600 dark:text-slate-300">
               We've received your application and will review it shortly. If you're a good match, we'll contact you via email.
             </p>
           </div>

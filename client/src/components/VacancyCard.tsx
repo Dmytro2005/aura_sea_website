@@ -21,11 +21,17 @@ export default function VacancyCard({
   onApply,
 }: VacancyCardProps) {
   return (
-    <Card className="glass-card hover-elevate h-full flex flex-col" data-testid={`vacancy-card-${title.toLowerCase().replace(/\s+/g, '-')}`}>
+    <Card
+      className="glass-card hover-elevate h-full flex flex-col border-cyan-500/20 shadow-md shadow-cyan-950/5 dark:shadow-cyan-950/20"
+      data-testid={`vacancy-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
+    >
       <CardHeader>
-        <CardTitle className="font-headline text-xl">{title}</CardTitle>
-        <Badge variant="secondary" className="w-fit mt-2">
-          <Ship className="w-3 h-3 mr-1" />
+        <CardTitle className="font-headline text-xl text-foreground">{title}</CardTitle>
+        <Badge
+          variant="outline"
+          className="w-fit mt-2 border-teal-500/35 bg-teal-500/10 font-medium text-teal-900 dark:border-teal-400/30 dark:bg-teal-500/15 dark:text-teal-100"
+        >
+          <Ship className="w-3 h-3 mr-1 text-teal-600 dark:text-teal-300" />
           {vesselType}
         </Badge>
       </CardHeader>
@@ -33,18 +39,18 @@ export default function VacancyCard({
         <p className="text-sm text-muted-foreground">{description}</p>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
-            <DollarSign className="w-4 h-4 text-primary" />
+            <DollarSign className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400" />
             <span className="text-foreground">{salary}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-primary" />
+            <Calendar className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400" />
             <span className="text-foreground">{contractLength}</span>
           </div>
         </div>
       </CardContent>
       <CardFooter>
         <Button
-          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+          className="w-full"
           onClick={onApply}
           data-testid={`button-apply-${title.toLowerCase().replace(/\s+/g, '-')}`}
         >

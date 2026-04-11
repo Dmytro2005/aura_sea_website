@@ -5,10 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle, Send } from "lucide-react";
 import { Link } from "wouter";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Contact() {
+  useScrollAnimation();
+
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,184 +24,136 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     console.log("Contact Form Submitted:", formData);
-
     setShowSuccess(true);
-    
     setTimeout(() => {
       setShowSuccess(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-        gdprConsent: false,
-      });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "", gdprConsent: false });
     }, 5000);
   };
 
   return (
-    <div className="min-h-screen pb-16">
-      <section className="py-24 relative overflow-hidden maritime-gradient">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-10 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+    <div className="min-h-screen">
+
+      {/* ═══════════ HERO — deep radial ═══════════ */}
+      <section className="py-32 pt-36 relative overflow-hidden section-deep">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-10 left-20 w-80 h-80 bg-cyan-500/6 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-20 w-96 h-96 bg-teal-500/6 rounded-full blur-3xl" />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-contact">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-black" data-testid="heading-contact">
             Contact AURA SEA
           </h1>
-          <p className="text-xl text-muted-foreground mb-4">
-            Get in touch with our team
-          </p>
-          <p className="text-lg text-muted-foreground">
-            Whether you're a ship-owner looking for reliable crew management or a seafarer interested in opportunities, we're here to help
+          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+            Whether you're a ship-owner looking for reliable crew management or a seafarer interested in opportunities, we're here to help.
           </p>
         </div>
       </section>
 
-      <section className="py-16 maritime-gradient">
+      {/* ═══════════ FORM + INFO — accent bg ═══════════ */}
+      <section className="py-20 section-accent">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <Card className="glass-card h-full">
-                <CardHeader>
-                  <CardTitle className="font-headline text-2xl">Send us a message</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {showSuccess ? (
-                    <div className="text-center py-12" data-testid="success-message">
-                      <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-500" />
-                      <h3 className="font-headline text-2xl font-bold mb-2">Thank you for your submission</h3>
-                      <p className="text-muted-foreground">
-                        We've received your message and will get back to you as soon as possible.
-                      </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+            {/* ── Contact Form (wider) ── */}
+            <div className="lg:col-span-3 scroll-animate">
+              <div className="glass-card rounded-xl p-6 sm:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <Send className="w-5 h-5 text-cyan-400" />
+                  <h2 className="font-headline text-xl font-medium text-foreground">Send us a message</h2>
+                </div>
+
+                {showSuccess ? (
+                  <div className="text-center py-12" data-testid="success-message">
+                    <CheckCircle className="w-16 h-16 mx-auto mb-4 text-emerald-400" />
+                    <h3 className="font-headline text-2xl font-semibold mb-2 text-foreground">Thank you!</h3>
+                    <p className="text-muted-foreground font-light">We've received your message and will get back to you soon.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name" className="text-foreground font-light text-sm">Name *</Label>
+                        <Input id="name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="input-name" />
+                      </div>
+                      <div>
+                        <Label htmlFor="email" className="text-foreground font-light text-sm">Email *</Label>
+                        <Input id="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="input-email" />
+                      </div>
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="name">Name *</Label>
-                        <Input
-                          id="name"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          data-testid="input-name"
-                        />
+                        <Label htmlFor="phone" className="text-foreground font-light text-sm">Phone</Label>
+                        <Input id="phone" type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="input-phone" />
                       </div>
-
                       <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          data-testid="input-email"
-                        />
+                        <Label htmlFor="subject" className="text-foreground font-light text-sm">Subject *</Label>
+                        <Input id="subject" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                          className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="input-subject" />
                       </div>
+                    </div>
 
-                      <div>
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          data-testid="input-phone"
-                        />
-                      </div>
+                    <div>
+                      <Label htmlFor="message" className="text-foreground font-light text-sm">Message *</Label>
+                      <Textarea id="message" required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="textarea-message" />
+                    </div>
 
-                      <div>
-                        <Label htmlFor="subject">Subject *</Label>
-                        <Input
-                          id="subject"
-                          required
-                          value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          data-testid="input-subject"
-                        />
-                      </div>
+                    <div className="flex items-start gap-2">
+                      <Checkbox id="gdpr" required checked={formData.gdprConsent} onCheckedChange={(checked) => setFormData({ ...formData, gdprConsent: checked as boolean })}
+                        className="border-white/20 data-[state=checked]:bg-cyan-600 data-[state=checked]:border-cyan-600" data-testid="checkbox-gdpr" />
+                      <Label htmlFor="gdpr" className="text-sm leading-tight cursor-pointer text-muted-foreground font-light">
+                        I consent to AURA SEA storing and processing my personal data in accordance with the{" "}
+                        <Link href="/privacy"><span className="text-cyan-400 hover:underline">Privacy Policy</span></Link>
+                      </Label>
+                    </div>
 
-                      <div>
-                        <Label htmlFor="message">Message *</Label>
-                        <Textarea
-                          id="message"
-                          required
-                          rows={6}
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          data-testid="textarea-message"
-                        />
-                      </div>
-
-                      <div className="flex items-start gap-2">
-                        <Checkbox
-                          id="gdpr"
-                          required
-                          checked={formData.gdprConsent}
-                          onCheckedChange={(checked) => setFormData({ ...formData, gdprConsent: checked as boolean })}
-                          data-testid="checkbox-gdpr"
-                        />
-                        <Label htmlFor="gdpr" className="text-sm leading-tight cursor-pointer">
-                          I consent to AURA SEA storing and processing my personal data in accordance with the{" "}
-                          <Link href="/privacy"><span className="text-primary hover:underline">Privacy Policy</span></Link>
-                        </Label>
-                      </div>
-
-                      <Button
-                        type="submit"
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                        data-testid="button-submit-contact"
-                      >
-                        Send Message
-                      </Button>
-                    </form>
-                  )}
-                </CardContent>
-              </Card>
+                    <Button type="submit" className="w-full font-normal" data-testid="button-submit-contact">
+                      Send Message
+                    </Button>
+                  </form>
+                )}
+              </div>
             </div>
 
-            <div className="space-y-8">
-              <Card className="glass-card">
-                <CardHeader>
-                  <CardTitle className="font-headline text-2xl">Contact Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Email</h3>
-                      <a href="mailto:info@aurasea.com" className="text-muted-foreground hover:text-primary" data-testid="contact-email">
-                        info@aurasea.com
-                      </a>
-                    </div>
-                  </div>
+            {/* ── Contact Info (narrower) ── */}
+            <div className="lg:col-span-2 space-y-6 scroll-animate-right">
+              {/* Contact details */}
+              <div className="glass-card rounded-xl p-6">
+                <h3 className="font-headline text-lg font-medium text-foreground mb-5">Contact Information</h3>
+                <div className="space-y-5">
+                  {[
+                    { icon: Mail, label: "Email", value: "info@aurasea.com", href: "mailto:info@aurasea.com", testId: "contact-email" },
+                    { icon: Phone, label: "Phone", value: "+1 (234) 567-890", href: "tel:+1234567890", testId: "contact-phone" },
+                  ].map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.label} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-medium text-foreground">{item.label}</h4>
+                          <a href={item.href} className="text-sm text-muted-foreground hover:text-cyan-400 transition-colors font-light" data-testid={item.testId}>
+                            {item.value}
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
 
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-primary" />
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Phone</h3>
-                      <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary" data-testid="contact-phone">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Address</h3>
-                      <p className="text-muted-foreground" data-testid="contact-address">
+                      <h4 className="text-sm font-medium text-foreground">Address</h4>
+                      <p className="text-sm text-muted-foreground font-light" data-testid="contact-address">
                         AURA SEA Maritime Services<br />
                         Maritime Business Center<br />
                         Harbor District, Port City
@@ -206,32 +161,30 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-primary" />
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                      <Clock className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Working Hours</h3>
-                      <p className="text-muted-foreground">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
+                      <h4 className="text-sm font-medium text-foreground">Working Hours</h4>
+                      <p className="text-sm text-muted-foreground font-light">
+                        Monday – Friday: 9:00 AM – 6:00 PM<br />
                         24/7 Emergency Support Available
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="glass-card">
-                <CardContent className="p-0">
-                  <div className="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-950 dark:to-blue-900 rounded-lg flex items-center justify-center" data-testid="map-placeholder">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 mx-auto mb-2 text-primary" />
-                      <p className="text-sm text-muted-foreground">Map Location</p>
-                      <p className="text-xs text-muted-foreground mt-1">Interactive map will be added here</p>
-                    </div>
+              {/* Map placeholder */}
+              <div className="glass-card rounded-xl overflow-hidden">
+                <div className="w-full h-48 bg-gradient-to-br from-cyan-950/50 to-teal-950/50 flex items-center justify-center" data-testid="map-placeholder">
+                  <div className="text-center">
+                    <MapPin className="w-10 h-10 mx-auto mb-2 text-cyan-400/50" />
+                    <p className="text-xs text-gray-500 font-light">Interactive map will be added here</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>

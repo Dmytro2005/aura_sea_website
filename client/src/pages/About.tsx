@@ -1,205 +1,402 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Heart, TrendingUp, Users, Target, Award } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Shield,
+  Heart,
+  TrendingUp,
+  Users,
+  Target,
+  Award,
+  CheckCircle,
+  Database,
+  Sparkles,
+} from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import aboutHero from "@assets/stock_images/venti-views-1cqIcrWFQBI-unsplash.jpg";
 
 export default function About() {
+  useScrollAnimation();
+
+  const missionVisionValues = [
+    {
+      icon: Target,
+      title: "Mission",
+      desc: "To provide reliable crewing solutions through transparent communication, modern processes, and long-term partnerships built on trust and excellence.",
+      iconBg: "bg-cyan-500/10",
+      iconClass: "text-cyan-400",
+    },
+    {
+      icon: TrendingUp,
+      title: "Vision",
+      desc: "To become a leading maritime holding company, continuously innovating in crew management and related services while maintaining our commitment to care.",
+      iconBg: "bg-teal-500/10",
+      iconClass: "text-teal-400",
+    },
+    {
+      icon: Award,
+      title: "Values",
+      desc: "Safety, transparency, respect, reliability, and professional development guide every decision we make.",
+      iconBg: "bg-blue-500/10",
+      iconClass: "text-blue-400",
+    },
+  ] as const;
+
+  const coreValues = [
+    {
+      icon: Shield,
+      title: "Safety First",
+      desc: "Ensuring the safety and well-being of seafarers is our top priority, with rigorous vetting and compliance procedures.",
+      iconBg: "bg-cyan-500/10",
+      iconClass: "text-cyan-400",
+    },
+    {
+      icon: Target,
+      title: "Transparency",
+      desc: "Open, honest communication in all our dealings, from contract terms to operational updates.",
+      iconBg: "bg-teal-500/10",
+      iconClass: "text-teal-400",
+    },
+    {
+      icon: Heart,
+      title: "Respect",
+      desc: "Treating every seafarer and partner with dignity, recognizing the vital role they play in global maritime trade.",
+      iconBg: "bg-blue-500/10",
+      iconClass: "text-blue-400",
+    },
+    {
+      icon: TrendingUp,
+      title: "Development",
+      desc: "Supporting continuous professional growth through training opportunities and career advancement.",
+      iconBg: "bg-cyan-500/10",
+      iconClass: "text-cyan-400",
+    },
+  ] as const;
+
+  const leadership = [
+    {
+      icon: Users,
+      title: "Managing Director",
+      badge: "Leadership",
+      desc: "10+ years in maritime operations and crew management.",
+      gradient: "from-cyan-500 to-teal-600",
+    },
+    {
+      icon: Target,
+      title: "Operations Director",
+      badge: "Operations",
+      desc: "Expert in crew deployment and vessel operations management.",
+      gradient: "from-teal-500 to-blue-600",
+    },
+    {
+      icon: Heart,
+      title: "HR Director",
+      badge: "Human Resources",
+      desc: "Dedicated to seafarer welfare and career development.",
+      gradient: "from-blue-500 to-cyan-600",
+    },
+  ] as const;
+
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <section className="py-32 relative overflow-hidden maritime-gradient">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-8">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6" data-testid="heading-about">
+    <div className="min-h-screen pb-16">
+      {/* ═══════════ HERO — photo background ═══════════ */}
+      <section className="py-24 pt-32 relative overflow-hidden min-h-[50vh] flex items-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${aboutHero})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,30%,5%)]/90 via-[hsl(215,30%,5%)]/80 to-[hsl(215,30%,5%)]" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-animate">
+          <h1
+            className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300"
+            data-testid="heading-about"
+          >
             About AURA SEA
           </h1>
-          <p className="text-lg text-muted-foreground">
-            Building the future of maritime crewing through expertise, innovation, and care
+          <p className="text-lg sm:text-xl font-light max-w-2xl mx-auto leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
+            Maritime experience, digital innovation, and mental health awareness—where professionalism meets care
           </p>
         </div>
       </section>
 
-      <section className="py-16 maritime-gradient">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="glass-card text-center hover-elevate" data-testid="card-mission">
-              <CardHeader>
-                <Target className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <CardTitle className="font-headline">Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  To provide reliable crewing solutions through transparent communication, modern processes, and long-term partnerships built on trust and excellence
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card text-center hover-elevate" data-testid="card-vision">
-              <CardHeader>
-                <TrendingUp className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <CardTitle className="font-headline">Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  To become a leading maritime holding company, continuously innovating in crew management and related services while maintaining our commitment to care
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card text-center hover-elevate" data-testid="card-values">
-              <CardHeader>
-                <Award className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <CardTitle className="font-headline">Values</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Safety, transparency, respect, reliability, and professional development guide every decision we make
-                </p>
-              </CardContent>
-            </Card>
+      <div className="maritime-gradient">
+      {/* ═══════════ MISSION / VISION / VALUES ═══════════ */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-headline text-3xl font-semibold text-center text-foreground mb-12 scroll-animate">
+            Mission, vision &amp; values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {missionVisionValues.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={item.title}
+                  className={`glass-card h-full text-center scroll-animate scroll-animate-delay-${i + 1}`}
+                  data-testid={`card-about-${item.title.toLowerCase()}`}
+                >
+                  <CardHeader>
+                    <div
+                      className={`w-14 h-14 rounded-xl ${item.iconBg} flex items-center justify-center mx-auto mb-2`}
+                    >
+                      <Icon className={`w-7 h-7 ${item.iconClass}`} />
+                    </div>
+                    <CardTitle className="font-headline text-xl font-medium">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.desc}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
-          <Card className="glass-premium p-8 sm:p-12 mb-16 border-2">
-            <h2
-              className="font-headline text-2xl sm:text-3xl font-bold mb-6"
-              data-testid="heading-our-story"
-            >
-              Our Story
-            </h2>
-            <div className="prose prose-lg max-w-none text-foreground">
-              <p className="text-muted-foreground mb-4">
-                AURA SEA was founded on a simple principle: maritime crewing should be built on trust, transparency, and genuine care for both ship-owners and seafarers. With over 10 years of combined maritime experience, our leadership team recognized the need for a modern approach to crew management.
+          <Card className="glass-card scroll-animate" data-testid="card-about-company">
+            <CardHeader>
+              <CardTitle
+                className="font-headline text-2xl sm:text-3xl font-semibold"
+                data-testid="heading-about-company"
+              >
+                About the company
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground font-light leading-relaxed">
+              <p className="text-foreground/90 font-normal">Founded in April 2022 in Odesa, Ukraine</p>
+              <p>
+                Aura Sea Crewing is a professional crewing agency established and operated by experienced seafarers.
               </p>
-              <p className="text-muted-foreground mb-4">
-                We specialize in providing qualified officers and ratings for tanker and bulk carrier fleets, leveraging our extensive database of 500+ experienced seafarers. Our "Fresh Vision" combines traditional maritime expertise with modern technology and processes, creating efficient, transparent operations that benefit everyone involved.
+              <p>
+                We specialize in providing qualified and verified Ukrainian crew members for various vessel types,
+                including Container Ships, Bulk Carriers, General Cargo, VLCCs, Tankers, Yachts, and Passenger vessels.
               </p>
-              <p className="text-muted-foreground">
-                Today, AURA SEA is more than a crewing agency – we're a growing holding company committed to continuous development and innovation in maritime services. We're building long-term partnerships that create value for ship-owners while advancing the careers of seafarers.
+              <p>
+                Our operations are built on modern technology, efficiency, and accountability—ensuring shipowners receive
+                reliable and competent personnel, ready to join worldwide.
               </p>
-            </div>
+            </CardContent>
           </Card>
+        </div>
+      </section>
 
-          <div className="pt-[24px] pb-[24px] mt-[64px] mb-[64px]">
-            <h2
-              className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center"
-              data-testid="heading-core-values"
+      {/* ═══════════ OUR SYSTEM & TECHNOLOGY — parallel columns ═══════════ */}
+      <section className="py-20 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <Card className="glass-card h-full flex flex-col scroll-animate" data-testid="card-our-system">
+              <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-teal-400" />
+                </div>
+                <div className="space-y-1 flex-1">
+                  <CardTitle
+                    className="font-headline text-2xl sm:text-3xl font-semibold"
+                    data-testid="heading-our-system"
+                  >
+                    Our system
+                  </CardTitle>
+                  <CardDescription className="text-base font-light leading-relaxed">
+                    Aura Sea Crewing applies the newest generation of HR technologies and data-driven recruitment
+                    algorithms tailored for the maritime industry. We utilize structured evaluation workflows that
+                    include:
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6 flex-1 flex flex-col">
+                <ul className="space-y-3 text-sm text-muted-foreground font-light flex-1">
+                  {[
+                    "Real-time database management and continuous updates",
+                    "Automated verification of maritime documents and certificates",
+                    "Competency-based interviewing and psychological assessment",
+                    "Candidate scoring system based on performance and readiness",
+                  ].map((line) => (
+                    <li key={line} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-teal-400 mt-0.5 flex-shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-muted-foreground font-light leading-relaxed text-sm border-t border-border/60 pt-6 mt-auto">
+                  This ensures every seafarer profile is authentic, current, and job-ready.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="glass-card h-full flex flex-col scroll-animate scroll-animate-delay-1"
+              data-testid="card-technology"
             >
-              Our Core Values
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="glass-card hover-elevate">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <Shield className="w-8 h-8 text-primary flex-shrink-0" />
-                  <CardTitle className="font-headline text-lg">Safety First</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Ensuring the safety and well-being of seafarers is our top priority, with rigorous vetting and compliance procedures
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card hover-elevate">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <Target className="w-8 h-8 text-primary flex-shrink-0" />
-                  <CardTitle className="font-headline text-lg">Transparency</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Open, honest communication in all our dealings, from contract terms to operational updates
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card hover-elevate">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <Heart className="w-8 h-8 text-primary flex-shrink-0" />
-                  <CardTitle className="font-headline text-lg">Respect</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Treating every seafarer and partner with dignity, recognizing the vital role they play in global maritime trade
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card hover-elevate">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <TrendingUp className="w-8 h-8 text-primary flex-shrink-0" />
-                  <CardTitle className="font-headline text-lg">Development</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Supporting continuous professional growth through training opportunities and career advancement
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          <div>
-            <h2
-              className="font-headline text-2xl sm:text-3xl font-bold mb-8 text-center"
-              data-testid="heading-leadership"
-            >
-              Leadership Team
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="glass-card text-center hover-elevate" data-testid="card-leader-managing">
-                <CardHeader>
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white" />
-                  </div>
-                  <CardTitle className="font-headline">Managing Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">
-                    Leadership
-                  </Badge>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    10+ years in maritime operations and crew management
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card text-center hover-elevate" data-testid="card-leader-operations">
-                <CardHeader>
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 mx-auto mb-4 flex items-center justify-center">
-                    <Target className="w-12 h-12 text-white" />
-                  </div>
-                  <CardTitle className="font-headline">Operations Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">
-                    Operations
-                  </Badge>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Expert in crew deployment and vessel operations management
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card text-center hover-elevate" data-testid="card-leader-hr">
-                <CardHeader>
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 mx-auto mb-4 flex items-center justify-center">
-                    <Heart className="w-12 h-12 text-white" />
-                  </div>
-                  <CardTitle className="font-headline">HR Director</CardTitle>
-                  <Badge variant="secondary" className="mt-2 mx-auto">
-                    Human Resources
-                  </Badge>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Dedicated to seafarer welfare and career development
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+              <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="space-y-1 flex-1">
+                  <CardTitle
+                    className="font-headline text-2xl sm:text-3xl font-semibold"
+                    data-testid="heading-technology-innovation"
+                  >
+                    Technology &amp; innovation
+                  </CardTitle>
+                  <CardDescription className="text-base font-light leading-relaxed">
+                    We implement modern HR standards, digital tracking systems, and automated analytics to improve every
+                    stage of the crewing process. Our adaptive digital infrastructure allows us to:
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col">
+                <ul className="space-y-3 text-sm text-muted-foreground font-light">
+                  {[
+                    "Locate and verify crew members globally",
+                    "Reduce recruitment time and administrative workload",
+                    "Maintain stable communication between shipowners and crew",
+                    "Guarantee compliance with MLC 2006 and international labor standards",
+                  ].map((line) => (
+                    <li key={line} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
+
+      {/* ═══════════ CREW DATABASE & WELLBEING ═══════════ */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <h2
+            className="font-headline text-3xl font-semibold text-center text-foreground scroll-animate"
+            data-testid="heading-database-wellbeing"
+          >
+            Crew database &amp; wellbeing
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Card className="glass-card h-full scroll-animate" data-testid="card-crew-database">
+              <CardHeader className="flex flex-row items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                  <Database className="w-6 h-6 text-cyan-400" />
+                </div>
+                <CardTitle className="font-headline text-xl sm:text-2xl font-semibold">Our crew database</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground font-light leading-relaxed text-sm">
+                <p>
+                  Our crew database includes over 500 verified professionals across all maritime positions and ranks.
+                  Each profile is personally reviewed, regularly updated, and tracked for certification status and
+                  contract availability. We maintain direct contact with every candidate, tracking contracts,
+                  availability dates, and certification status.
+                </p>
+                <p>
+                  Over the last three years, Aura Sea Crewing has successfully placed more than 200 Ukrainian seafarers
+                  on vessels of different types, building long-term partnerships with trusted operators.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card h-full scroll-animate scroll-animate-delay-1" data-testid="card-wellbeing">
+              <CardHeader className="flex flex-row items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                  <Heart className="w-6 h-6 text-cyan-400" />
+                </div>
+                <CardTitle className="font-headline text-xl sm:text-2xl font-semibold">
+                  Wellbeing &amp; psychological support
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground font-light leading-relaxed text-sm">
+                  Beyond recruitment, Aura Sea Crewing is the first Ukrainian agency integrating psychological support
+                  programs for seafarers and their families. We believe that mental stability and emotional balance are
+                  critical for safe and effective work at sea.
+                </p>
+                <p className="text-sm font-medium text-foreground">Our certified psychological partners provide:</p>
+                <ul className="space-y-3 text-sm text-muted-foreground font-light">
+                  {[
+                    "Support and consultations for seafarers' spouses and relatives",
+                    "Stress-resilience sessions for seafarers before and after contracts",
+                    "Continuous mental health awareness integrated into our HR process",
+                  ].map((line) => (
+                    <li key={line} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-muted-foreground font-light leading-relaxed text-sm pt-2 border-t border-border/60">
+                  This approach allows us not only to fill vacancies—but to build sustainable, motivated, and mentally
+                  healthy maritime teams.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ CORE VALUES ═══════════ */}
+      <section className="py-20 relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-headline text-3xl font-semibold text-center text-foreground mb-12 scroll-animate" data-testid="heading-core-values">
+            Our core values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {coreValues.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={item.title}
+                  className={`glass-card h-full scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}
+                  data-testid={`card-core-value-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <CardHeader className="flex flex-row items-start gap-4 space-y-0">
+                    <div className={`flex-shrink-0 w-12 h-12 rounded-lg ${item.iconBg} flex items-center justify-center`}>
+                      <Icon className={`w-6 h-6 ${item.iconClass}`} />
+                    </div>
+                    <div>
+                      <CardTitle className="font-headline text-lg font-medium mb-2">{item.title}</CardTitle>
+                      <CardDescription className="text-sm font-light leading-relaxed">{item.desc}</CardDescription>
+                    </div>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ LEADERSHIP ═══════════ */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-headline text-3xl font-semibold text-center text-foreground mb-12 scroll-animate" data-testid="heading-leadership">
+            Leadership team
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {leadership.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={item.title}
+                  className={`glass-card text-center hover:scale-[1.02] transition-transform duration-300 scroll-animate scroll-animate-delay-${i + 1}`}
+                  data-testid={`card-leadership-${item.badge.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <CardHeader className="items-center pb-2">
+                    <div
+                      className={`w-20 h-20 rounded-full bg-gradient-to-br ${item.gradient} mb-4 flex items-center justify-center shadow-lg`}
+                    >
+                      <Icon className="w-10 h-10 text-primary-foreground" />
+                    </div>
+                    <CardTitle className="font-headline text-lg font-medium">{item.title}</CardTitle>
+                    <Badge variant="secondary" className="mt-2 font-light text-xs w-fit mx-auto">
+                      {item.badge}
+                    </Badge>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground font-light">{item.desc}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      </div>
     </div>
   );
 }
