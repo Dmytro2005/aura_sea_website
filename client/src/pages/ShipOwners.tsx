@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
 import {
@@ -203,10 +204,12 @@ export default function ShipOwners() {
           <p className="text-lg text-muted-foreground mb-8 font-light">
             Contact us today to learn how AURA SEA can become your reliable crewing partner.
           </p>
-          <Link href="/contact">
-            <Button size="lg" className="font-normal" data-testid="button-contact-ship-owners">
-              Get in Touch
-            </Button>
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ size: "lg" }), "inline-flex font-normal")}
+            data-testid="button-contact-ship-owners"
+          >
+            Get in Touch
           </Link>
         </div>
       </section>

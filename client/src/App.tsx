@@ -15,6 +15,7 @@ const wouterBase = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
 function AppRoutes() {
   return (
     <Switch>
+      <Route path="/index.html" component={Home} />
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/ship-owners" component={ShipOwners} />

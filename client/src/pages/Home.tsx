@@ -1,23 +1,44 @@
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Users, Shield, Clock, Database, Award, TrendingUp, Ship, CheckCircle, Headphones, ChevronDown } from "lucide-react";
 
+const base = import.meta.env.BASE_URL;
 
+function HeroVideo({ src, poster }: { src: string; poster: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-function HeroVideo({ src }: { src: string }) {
+  useEffect(() => {
+    const el = videoRef.current;
+    return () => {
+      if (!el) return;
+      el.pause();
+      el.removeAttribute("src");
+      el.load();
+    };
+  }, []);
+
   return (
     <video
+      ref={videoRef}
       src={src}
       autoPlay
-      onLoadedMetadata={(e) => {
-        e.currentTarget.playbackRate = 0.5;
-      }}
       muted
       playsInline
-      preload="auto"
-      poster="/textures/dark-ocean-bg.png"
+      preload="metadata"
+      onLoadedMetadata={(e) => {
+        try {
+          e.currentTarget.playbackRate = 0.5;
+        } catch {
+          /* Safari / strict mode */
+        }
+      }}
+      onError={() => {
+        /* Avoid surfacing decode/network errors as uncaught */
+      }}
+      poster={poster}
       style={{
         position: "absolute",
         inset: 0,
@@ -38,7 +59,10 @@ export default function Home() {
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* Video background (plays once, then holds final frame) */}
-        <HeroVideo src="/videos/Ship_Photo_to_Website_Background_Video.mp4" />
+        <HeroVideo
+          src={`${base}videos/Ship_Photo_to_Website_Background_Video.mp4`}
+          poster={`${base}textures/dark-ocean-bg.png`}
+        />
 
         {/* Gradient overlay for depth & brand colour tint */}
         <div
@@ -74,15 +98,25 @@ export default function Home() {
             </p>
 
             <div className="mt-8 mx-auto flex w-full max-w-md flex-col gap-4 sm:max-w-xl sm:flex-row">
-              <Link href="/ship-owners" className="block w-full min-w-0 sm:flex-1" data-testid="link-hero-ship-owners">
-                <Button className="w-full !text-white" size="lg" data-testid="button-hero-ship-owners">
-                  For Ship-Owners
-                </Button>
+              <Link
+                href="/ship-owners"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center",
+                )}
+                data-testid="link-hero-ship-owners"
+              >
+                For Ship-Owners
               </Link>
-              <Link href="/seafarers" className="block w-full min-w-0 sm:flex-1" data-testid="link-hero-seafarers">
-                <Button className="w-full !text-white" size="lg" variant="secondary" data-testid="button-hero-seafarers">
-                  For Seafarers
-                </Button>
+              <Link
+                href="/seafarers"
+                className={cn(
+                  buttonVariants({ size: "lg", variant: "secondary" }),
+                  "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center",
+                )}
+                data-testid="link-hero-seafarers"
+              >
+                For Seafarers
               </Link>
             </div>
 
@@ -196,10 +230,12 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Link href="/ship-owners">
-              <Button size="lg" data-testid="button-learn-more-owners">
-                Learn More About Our Services
-              </Button>
+            <Link
+              href="/ship-owners"
+              className={cn(buttonVariants({ size: "lg" }), "inline-flex")}
+              data-testid="button-learn-more-owners"
+            >
+              Learn More About Our Services
             </Link>
           </div>
         </div>
@@ -254,10 +290,12 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Link href="/seafarers">
-              <Button size="lg" data-testid="button-learn-more-seafarers">
-                Learn More About Opportunities
-              </Button>
+            <Link
+              href="/seafarers"
+              className={cn(buttonVariants({ size: "lg" }), "inline-flex")}
+              data-testid="button-learn-more-seafarers"
+            >
+              Learn More About Opportunities
             </Link>
           </div>
         </div>
@@ -272,10 +310,12 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-8">
               Let's discuss how we can support your crewing needs or advance your maritime career
             </p>
-            <Link href="/contact">
-              <Button size="lg" className="text-lg px-10" data-testid="button-contact-aura-sea">
-                Contact AURA SEA
-              </Button>
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ size: "lg" }), "inline-flex text-lg px-10")}
+              data-testid="button-contact-aura-sea"
+            >
+              Contact AURA SEA
             </Link>
           </Card>
         </div>

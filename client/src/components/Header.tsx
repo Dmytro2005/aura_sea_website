@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import logoDark from "@assets/generated_images/AURA_SEA_company_logo_4bfb05d5.svg";
@@ -47,31 +48,34 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={`header-nav-ghost text-base font-semibold border-0 ${
-                    location === link.href
-                      ? isScrolled
-                        ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
-                        : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
-                      : isScrolled
-                        ? "text-slate-700 hover:text-slate-950"
-                        : "text-white/90 hover:text-cyan-200"
-                  }`}
-                >
-                  {link.label}
-                </Button>
+              <Link
+                key={link.href}
+                href={link.href}
+                data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "header-nav-ghost text-base font-semibold border-0",
+                  location === link.href
+                    ? isScrolled
+                      ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
+                      : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                    : isScrolled
+                      ? "text-slate-700 hover:text-slate-950"
+                      : "text-white/90 hover:text-cyan-200",
+                )}
+              >
+                {link.label}
               </Link>
             ))}
           </nav>
 
           <div className="hidden md:flex">
-            <Link href="/contact" data-testid="button-contact-cta">
-              <Button variant="secondary" size="sm" className="font-medium">
-                Contact Us
-              </Button>
+            <Link
+              href="/contact"
+              data-testid="button-contact-cta"
+              className={cn(buttonVariants({ variant: "secondary", size: "sm" }), "font-medium")}
+            >
+              Contact Us
             </Link>
           </div>
 
@@ -99,34 +103,33 @@ export default function Header() {
             }`}
           >
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <Button
-                  variant="ghost"
-                  className={`header-nav-ghost w-full justify-start text-base font-semibold border-0 ${
-                    location === link.href
-                      ? isScrolled
-                        ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
-                        : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
-                      : isScrolled
-                        ? "text-slate-700 hover:text-slate-950"
-                        : "text-white/90 hover:text-cyan-200"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {link.label}
-                </Button>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "header-nav-ghost w-full justify-start text-base font-semibold border-0",
+                  location === link.href
+                    ? isScrolled
+                      ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
+                      : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                    : isScrolled
+                      ? "text-slate-700 hover:text-slate-950"
+                      : "text-white/90 hover:text-cyan-200",
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+                data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {link.label}
               </Link>
             ))}
-            <Link href="/contact">
-              <Button
-                variant="secondary"
-                className="w-full font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-                data-testid="mobile-button-contact"
-              >
-                Contact Us
-              </Button>
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ variant: "secondary" }), "w-full font-medium")}
+              onClick={() => setMobileMenuOpen(false)}
+              data-testid="mobile-button-contact"
+            >
+              Contact Us
             </Link>
           </div>
         )}

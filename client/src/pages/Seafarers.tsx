@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -271,15 +272,22 @@ export default function Seafarers() {
             Check our current vacancies or get in touch to learn more about opportunities with AURA SEA.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/vacancies">
-              <Button size="lg" className="font-normal" data-testid="button-view-vacancies">
-                View Vacancies
-              </Button>
+            <Link
+              href="/vacancies"
+              className={cn(buttonVariants({ size: "lg" }), "inline-flex font-normal")}
+              data-testid="button-view-vacancies"
+            >
+              View Vacancies
             </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="secondary" className="font-normal" data-testid="button-contact-seafarers">
-                Contact Us
-              </Button>
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants({ size: "lg", variant: "secondary" }),
+                "inline-flex font-normal",
+              )}
+              data-testid="button-contact-seafarers"
+            >
+              Contact Us
             </Link>
           </div>
         </div>
