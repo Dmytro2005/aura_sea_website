@@ -29,16 +29,14 @@ function AppRoutes() {
 }
 
 function App() {
-  const routes = <AppRoutes />;
   return (
     <TooltipProvider>
-      <Layout>
-        {wouterBase ? (
-          <WouterRouter base={wouterBase}>{routes}</WouterRouter>
-        ) : (
-          routes
-        )}
-      </Layout>
+      {/* Router must wrap Layout so Header/Footer Links share the same base as routes */}
+      <WouterRouter base={wouterBase}>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </WouterRouter>
     </TooltipProvider>
   );
 }
