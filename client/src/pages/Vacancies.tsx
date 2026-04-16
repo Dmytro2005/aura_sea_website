@@ -8,7 +8,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
-import marineOfficer from "@assets/stock_images/marine_engineer_offi_4366b328.jpg";
+import marineOfficer from "@assets/stock_images/stormy_sea_2.png";
+import heroPhoto from "@assets/stock_images/marine_engineer_offi_4366b328.jpg";
 
 export default function Vacancies() {
   const [selectedVacancy, setSelectedVacancy] = useState<string | null>(null);
@@ -58,14 +59,14 @@ export default function Vacancies() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     console.log("Vacancy Application Submitted:", {
       ...formData,
       vacancy: selectedVacancy,
     });
 
     setShowSuccess(true);
-    
+
     setTimeout(() => {
       setShowSuccess(false);
       setSelectedVacancy(null);
@@ -83,24 +84,44 @@ export default function Vacancies() {
   };
 
   return (
-    <div className="min-h-screen pb-16">
-      <section className="py-24 pt-32 relative overflow-hidden min-h-[50vh] flex items-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${marineOfficer})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,30%,5%)]/90 via-[hsl(215,30%,5%)]/80 to-[hsl(215,30%,5%)]" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300" data-testid="heading-vacancies">
-            Current Vacancies
-          </h1>
-          <p className="text-xl mb-4 drop-shadow-md text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
-            Join our partner fleets on tanker and bulk carrier vessels
-          </p>
+    <div className="min-h-screen pb-16 relative">
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${marineOfficer})` }}
+      />
+      <div className="fixed inset-0 bg-black/40 z-0" />
+
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="py-24 pt-32 relative flex items-center z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full scroll-animate">
+          <div className="relative rounded-3xl border border-white/10 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] min-h-[400px] flex items-center">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${heroPhoto})` }}
+            />
+            {/* Elegant Gradient Overlays for Text Legibility and Aesthetics */}
+            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/20 backdrop-blur-none" />
+            <div className="absolute inset-0 bg-emerald-900/20 mix-blend-color" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.15),transparent_40%)]" />
+
+            <div className="relative z-10 p-8 sm:p-12 lg:p-16 max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="text-xs font-medium text-emerald-50 tracking-wider uppercase">Now Hiring</span>
+              </div>
+              <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg tracking-tight" data-testid="heading-vacancies">
+                Current Vacancies
+              </h1>
+              <p className="text-lg sm:text-xl font-light leading-relaxed max-w-2xl mx-auto lg:mx-0 text-white/90 drop-shadow-md">
+                Join our partner fleets on tanker and bulk carrier vessels
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 maritime-gradient">
+      <section className="py-16 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {vacancies.map((vacancy) => (

@@ -30,7 +30,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "header-on-light bg-white/95 border-b border-slate-200 shadow-sm"
+          ? "glass-card border-b border-border shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -39,9 +39,9 @@ export default function Header() {
           <Link href="/" data-testid="link-home">
             <div className="flex items-center rounded-md px-2 py-1 cursor-pointer">
               <img
-                src={isScrolled ? logoDark : logoWhite}
+                src={logoWhite}
                 alt="AURA SEA"
-                className={`h-20 w-auto ${isScrolled ? "brightness-110" : ""}`}
+                className="h-20 w-auto"
               />
             </div>
           </Link>
@@ -56,12 +56,8 @@ export default function Header() {
                   buttonVariants({ variant: "ghost", size: "sm" }),
                   "header-nav-ghost text-base font-semibold border-0",
                   location === link.href
-                    ? isScrolled
-                      ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
-                      : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
-                    : isScrolled
-                      ? "text-slate-700 hover:text-slate-950"
-                      : "text-white/90 hover:text-cyan-200",
+                    ? "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                    : "text-white/90 hover:text-cyan-200"
                 )}
               >
                 {link.label}
@@ -82,11 +78,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className={`header-nav-ghost md:hidden ${
-              isScrolled
-                ? "text-slate-700 hover:text-slate-950"
-                : "text-white/90 hover:text-cyan-200"
-            }`}
+            className="header-nav-ghost md:hidden text-white/90 hover:text-cyan-200"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -98,7 +90,7 @@ export default function Header() {
           <div
             className={`md:hidden pb-4 space-y-2 rounded-xl p-2 ${
               isScrolled
-                ? "border border-slate-200 bg-white/95 shadow-md"
+                ? "glass-card border border-border shadow-md"
                 : "border border-white/15 bg-slate-950/75 backdrop-blur-xl"
             }`}
           >
@@ -110,12 +102,8 @@ export default function Header() {
                   buttonVariants({ variant: "ghost" }),
                   "header-nav-ghost w-full justify-start text-base font-semibold border-0",
                   location === link.href
-                    ? isScrolled
-                      ? "bg-transparent text-blue-800 hover:bg-transparent hover:text-blue-950 underline underline-offset-8 decoration-2"
-                      : "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
-                    : isScrolled
-                      ? "text-slate-700 hover:text-slate-950"
-                      : "text-white/90 hover:text-cyan-200",
+                    ? "bg-transparent text-white hover:bg-transparent hover:text-cyan-200 underline underline-offset-8 decoration-white/80 hover:decoration-cyan-200/90"
+                    : "text-white/90 hover:text-cyan-200"
                 )}
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid={`mobile-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}

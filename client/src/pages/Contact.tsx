@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, CheckCircle, Send } from "lucide-react";
 import { Link } from "wouter";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import contactHero from "@assets/stock_images/stormy_sea_contact.png";
 
 export default function Contact() {
   useScrollAnimation();
@@ -33,32 +34,33 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${contactHero})` }}
+      />
+      <div className="fixed inset-0 bg-black/40 z-0" />
 
-      {/* ═══════════ HERO — deep radial ═══════════ */}
-      <section className="py-32 pt-36 relative overflow-hidden section-deep">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-10 left-20 w-80 h-80 bg-cyan-500/6 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-20 w-96 h-96 bg-teal-500/6 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-black" data-testid="heading-contact">
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="py-24 pt-32 relative flex items-center z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+          <h1 className="font-headline text-4xl sm:text-5xl font-bold mb-6 text-white drop-shadow-md" data-testid="heading-contact">
             Contact AURA SEA
           </h1>
-          <p className="text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-lg text-white drop-shadow-md font-light max-w-2xl mx-auto">
             Whether you're a ship-owner looking for reliable crew management or a seafarer interested in opportunities, we're here to help.
           </p>
         </div>
       </section>
 
-      {/* ═══════════ FORM + INFO — accent bg ═══════════ */}
-      <section className="py-20 section-accent">
+      {/* ═══════════ FORM + INFO ═══════════ */}
+      <section className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
             {/* ── Contact Form (wider) ── */}
             <div className="lg:col-span-3 scroll-animate">
-              <div className="glass-card rounded-xl p-6 sm:p-8">
+              <div className="glass-card rounded-xl p-6 sm:p-8 h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                   <Send className="w-5 h-5 text-cyan-400" />
                   <h2 className="font-headline text-xl font-medium text-foreground">Send us a message</h2>
@@ -71,7 +73,7 @@ export default function Contact() {
                     <p className="text-muted-foreground font-light">We've received your message and will get back to you soon.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 flex-grow flex flex-col">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="name" className="text-foreground font-light text-sm">Name *</Label>
@@ -98,10 +100,10 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div>
+                    <div className="flex-grow flex flex-col">
                       <Label htmlFor="message" className="text-foreground font-light text-sm">Message *</Label>
-                      <Textarea id="message" required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="mt-1 bg-background/60 border-border text-foreground placeholder:text-muted-foreground" data-testid="textarea-message" />
+                      <Textarea id="message" required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="mt-1 flex-grow bg-background/60 border-border text-foreground placeholder:text-muted-foreground min-h-[150px]" data-testid="textarea-message" />
                     </div>
 
                     <div className="flex items-start gap-2">
