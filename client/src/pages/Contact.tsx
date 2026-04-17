@@ -60,9 +60,9 @@ export default function Contact() {
 
             {/* ── Contact Form (wider) ── */}
             <div className="lg:col-span-3 scroll-animate">
-              <div className="glass-card rounded-xl p-6 sm:p-8 h-full flex flex-col">
+              <div className="glass-card rounded-xl p-6 sm:p-8 h-full flex flex-col group transition-all duration-300 hover:shadow-2xl hover:border-cyan-500/30">
                 <div className="flex items-center gap-3 mb-6">
-                  <Send className="w-5 h-5 text-cyan-400" />
+                  <Send className="w-5 h-5 text-cyan-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:translate-x-1" />
                   <h2 className="font-headline text-xl font-medium text-foreground">Send us a message</h2>
                 </div>
 
@@ -115,7 +115,7 @@ export default function Contact() {
                       </Label>
                     </div>
 
-                    <Button type="submit" className="w-full font-normal" data-testid="button-submit-contact">
+                    <Button type="submit" className="w-full font-normal transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] hover:shadow-lg hover:shadow-cyan-500/20" data-testid="button-submit-contact">
                       Send Message
                     </Button>
                   </form>
@@ -126,7 +126,7 @@ export default function Contact() {
             {/* ── Contact Info (narrower) ── */}
             <div className="lg:col-span-2 space-y-6 scroll-animate-right">
               {/* Contact details */}
-              <div className="glass-card rounded-xl p-6">
+              <div className="glass-card rounded-xl p-6 group transition-all duration-300 hover:shadow-2xl hover:border-cyan-500/30">
                 <h3 className="font-headline text-lg font-medium text-foreground mb-5">Contact Information</h3>
                 <div className="space-y-5">
                   {[
@@ -179,7 +179,7 @@ export default function Contact() {
               </div>
 
               {/* Map placeholder */}
-              <div className="glass-card rounded-xl overflow-hidden">
+              <div className="glass-card rounded-xl overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:border-cyan-500/30">
                 <div className="w-full h-48 bg-gradient-to-br from-cyan-950/50 to-teal-950/50 flex items-center justify-center" data-testid="map-placeholder">
                   <div className="text-center">
                     <MapPin className="w-10 h-10 mx-auto mb-2 text-cyan-400/50" />

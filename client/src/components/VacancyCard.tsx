@@ -22,7 +22,7 @@ export default function VacancyCard({
 }: VacancyCardProps) {
   return (
     <Card
-      className="glass-card hover-elevate h-full flex flex-col border-cyan-500/20 shadow-md shadow-cyan-950/5 dark:shadow-cyan-950/20"
+      className="glass-card h-full flex flex-col border-cyan-500/20 shadow-md shadow-cyan-950/5 dark:shadow-cyan-950/20 group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 hover:border-cyan-500/40"
       data-testid={`vacancy-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
       <CardHeader>
@@ -39,18 +39,18 @@ export default function VacancyCard({
         <p className="text-sm text-muted-foreground">{description}</p>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
-            <DollarSign className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400" />
+            <DollarSign className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-110" />
             <span className="text-foreground">{salary}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400" />
+            <Calendar className="w-4 h-4 shrink-0 text-cyan-600 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-110" />
             <span className="text-foreground">{contractLength}</span>
           </div>
         </div>
       </CardContent>
       <CardFooter>
         <Button
-          className="w-full"
+          className="w-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] hover:shadow-md hover:shadow-primary/20"
           onClick={onApply}
           data-testid={`button-apply-${title.toLowerCase().replace(/\s+/g, '-')}`}
         >

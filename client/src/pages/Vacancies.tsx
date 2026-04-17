@@ -250,7 +250,7 @@ export default function Vacancies() {
 
             <Button
               type="submit"
-              className="w-full"
+              className="w-full transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] hover:shadow-lg hover:shadow-cyan-500/20"
               data-testid="button-submit-application"
             >
               Submit Application

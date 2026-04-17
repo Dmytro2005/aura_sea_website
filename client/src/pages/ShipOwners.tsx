@@ -68,7 +68,7 @@ export default function ShipOwners() {
             </h2>
 
             <div className="scroll-animate">
-              <div className="glass-premium rounded-xl p-6 sm:p-8">
+              <div className="glass-premium rounded-xl p-6 sm:p-8 group cursor-default transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:shadow-primary/10">
                 <p className="text-muted-foreground font-light text-lg mb-6">
                   Aura Sea Crewing provides crew management for a wide range of vessel types—including container ships, bulk carriers, general cargo, VLCCs, tankers, yachts, and passenger vessels—handling the entire lifecycle from selection through deployment and ongoing support.
                 </p>
@@ -100,7 +100,7 @@ export default function ShipOwners() {
             </h2>
 
             <div className="scroll-animate">
-              <div className="glass-premium rounded-3xl p-8 sm:p-12">
+              <div className="glass-premium rounded-3xl p-8 sm:p-12 transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:shadow-primary/10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
                   {[
                     { icon: Database, title: "Continuously updated verified database", desc: "A living pool of qualified seafarers with profiles kept current through structured evaluation and ongoing updates.", color: "cyan" },
@@ -113,9 +113,9 @@ export default function ShipOwners() {
                     const Icon = item.icon;
                     return (
                       <div key={item.title} className={`scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}>
-                        <div className="flex items-start gap-4">
+                        <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
                           <div className={`flex-shrink-0 w-12 h-12 rounded-2xl bg-${item.color}-500/10 flex items-center justify-center border border-${item.color}-500/20`}>
-                            <Icon className={`w-6 h-6 text-${item.color}-400`} />
+                            <Icon className={`w-6 h-6 text-${item.color}-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6`} />
                           </div>
                           <div>
                             <h3 className="font-headline text-lg font-medium text-foreground mb-2">{item.title}</h3>
@@ -168,12 +168,12 @@ export default function ShipOwners() {
                 return (
                   <Card
                     key={item.title}
-                    className={`glass-card h-full scroll-animate scroll-animate-delay-${i + 1}`}
+                    className={`glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-${i + 1}`}
                     data-testid={item.testId}
                   >
                     <CardHeader>
                       <div className={`w-12 h-12 rounded-lg ${item.iconBg} flex items-center justify-center mb-2`}>
-                        <Icon className={`w-6 h-6 ${item.iconClass}`} />
+                        <Icon className={`w-6 h-6 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 ${item.iconClass}`} />
                       </div>
                       <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
                     </CardHeader>
@@ -196,11 +196,11 @@ export default function ShipOwners() {
 
             <div className="timeline-line space-y-6">
               {processSteps.map((step, i) => (
-                <div key={step.number} className={`flex gap-5 scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}>
+                <div key={step.number} className={`flex gap-5 group cursor-default transition-all duration-300 hover:-translate-y-1 scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}>
                   <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center z-10 shadow-lg shadow-cyan-900/30">
                     <span className="text-xl font-bold text-foreground font-headline">{step.number}</span>
                   </div>
-                  <div className="flex-1 glass-card rounded-xl p-5 ml-1">
+                  <div className="flex-1 glass-card rounded-xl p-5 ml-1 transition-all duration-300 group-hover:shadow-xl group-hover:border-primary/20">
                     <h3 className="font-headline text-lg font-medium text-foreground mb-2">{step.title}</h3>
                     <p className="text-sm text-muted-foreground font-light leading-relaxed">{step.description}</p>
                   </div>
@@ -216,7 +216,7 @@ export default function ShipOwners() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] opacity-50" />
           </div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="glass-premium rounded-3xl p-8 sm:p-12 text-center scroll-animate-scale">
+            <div className="glass-premium rounded-3xl p-8 sm:p-12 text-center group transition-all duration-500 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-500/20 scroll-animate-scale">
               <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
                 <Ship className="w-8 h-8 text-cyan-400" />
               </div>
@@ -228,7 +228,7 @@ export default function ShipOwners() {
               </p>
               <Link
                 href="/contact"
-                className={cn(buttonVariants({ size: "lg" }), "inline-flex font-normal px-8 h-12 text-base")}
+                className={cn(buttonVariants({ size: "lg" }), "inline-flex font-normal px-8 h-12 text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-cyan-500/20")}
                 data-testid="button-contact-ship-owners"
               >
                 Get in Touch

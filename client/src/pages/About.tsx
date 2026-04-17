@@ -149,14 +149,14 @@ export default function About() {
                 return (
                   <Card
                     key={item.title}
-                    className={`glass-card h-full text-center scroll-animate scroll-animate-delay-${i + 1}`}
+                    className={`glass-card h-full text-center group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-${i + 1}`}
                     data-testid={`card-about-${item.title.toLowerCase()}`}
                   >
                     <CardHeader>
                       <div
                         className={`w-14 h-14 rounded-xl ${item.iconBg} flex items-center justify-center mx-auto mb-2`}
                       >
-                        <Icon className={`w-7 h-7 ${item.iconClass}`} />
+                        <Icon className={`w-7 h-7 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3 ${item.iconClass}`} />
                       </div>
                       <CardTitle className="font-headline text-xl font-medium">{item.title}</CardTitle>
                     </CardHeader>
@@ -168,7 +168,7 @@ export default function About() {
               })}
             </div>
 
-            <Card className="glass-card scroll-animate" data-testid="card-about-company">
+            <Card className="glass-card group transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:shadow-primary/10 scroll-animate" data-testid="card-about-company">
               <CardHeader>
                 <CardTitle
                   className="font-headline text-2xl sm:text-3xl font-semibold"
@@ -199,10 +199,10 @@ export default function About() {
         <section className="py-20 relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              <Card className="glass-card h-full flex flex-col scroll-animate" data-testid="card-our-system">
+              <Card className="glass-card h-full flex flex-col group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate" data-testid="card-our-system">
                 <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-teal-400" />
+                    <Sparkles className="w-6 h-6 text-teal-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   </div>
                   <div className="space-y-1 flex-1">
                     <CardTitle
@@ -239,12 +239,12 @@ export default function About() {
               </Card>
 
               <Card
-                className="glass-card h-full flex flex-col scroll-animate scroll-animate-delay-1"
+                className="glass-card h-full flex flex-col group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-1"
                 data-testid="card-technology"
               >
                 <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-blue-400" />
+                    <TrendingUp className="w-6 h-6 text-blue-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6" />
                   </div>
                   <div className="space-y-1 flex-1">
                     <CardTitle
@@ -289,10 +289,10 @@ export default function About() {
               Crew database &amp; wellbeing
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card className="glass-card h-full scroll-animate" data-testid="card-crew-database">
+              <Card className="glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate" data-testid="card-crew-database">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                    <Database className="w-6 h-6 text-cyan-400" />
+                    <Database className="w-6 h-6 text-cyan-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   </div>
                   <CardTitle className="font-headline text-xl sm:text-2xl font-semibold">Our crew database</CardTitle>
                 </CardHeader>
@@ -310,10 +310,10 @@ export default function About() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card h-full scroll-animate scroll-animate-delay-1" data-testid="card-wellbeing">
+              <Card className="glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-1" data-testid="card-wellbeing">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-cyan-400" />
+                    <Heart className="w-6 h-6 text-cyan-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6" />
                   </div>
                   <CardTitle className="font-headline text-xl sm:text-2xl font-semibold">
                     Wellbeing &amp; psychological support
@@ -360,12 +360,12 @@ export default function About() {
                 return (
                   <Card
                     key={item.title}
-                    className={`glass-card h-full scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}
+                    className={`glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-${Math.min(i + 1, 4)}`}
                     data-testid={`card-core-value-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                       <div className={`flex-shrink-0 w-12 h-12 rounded-lg ${item.iconBg} flex items-center justify-center`}>
-                        <Icon className={`w-6 h-6 ${item.iconClass}`} />
+                        <Icon className={`w-6 h-6 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 ${item.iconClass}`} />
                       </div>
                       <div>
                         <CardTitle className="font-headline text-lg font-medium mb-2">{item.title}</CardTitle>
@@ -391,14 +391,14 @@ export default function About() {
                 return (
                   <Card
                     key={item.title}
-                    className={`glass-card text-center hover:scale-[1.02] transition-transform duration-300 scroll-animate scroll-animate-delay-${i + 1}`}
+                    className={`glass-card text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-${i + 1}`}
                     data-testid={`card-leadership-${item.badge.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     <CardHeader className="items-center pb-2">
                       <div
                         className={`w-20 h-20 rounded-full bg-gradient-to-br ${item.gradient} mb-4 flex items-center justify-center shadow-lg`}
                       >
-                        <Icon className="w-10 h-10 text-primary-foreground" />
+                        <Icon className="w-10 h-10 text-primary-foreground transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[15deg]" />
                       </div>
                       <CardTitle className="font-headline text-lg font-medium">{item.title}</CardTitle>
                       <Badge variant="secondary" className="mt-2 font-light text-xs w-fit mx-auto">

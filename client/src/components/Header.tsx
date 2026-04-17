@@ -88,7 +88,7 @@ export default function Header() {
 
         {mobileMenuOpen && (
           <div
-            className={`md:hidden pb-4 space-y-2 rounded-xl p-2 ${
+            className={`md:hidden pb-4 space-y-2 rounded-xl p-2 animate-in fade-in slide-in-from-top-4 duration-300 ease-out ${
               isScrolled
                 ? "glass-card border border-border shadow-md"
                 : "border border-white/15 bg-slate-950/75 backdrop-blur-xl"

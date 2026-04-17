@@ -97,12 +97,12 @@ export default function Seafarers() {
                 return (
                   <Card
                     key={item.title}
-                    className={`glass-card h-full scroll-animate scroll-animate-delay-${i + 1}`}
+                    className={`glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 scroll-animate scroll-animate-delay-${i + 1}`}
                     data-testid={item.testId}
                   >
                     <CardHeader className="text-center">
                       <div className={`w-12 h-12 rounded-lg ${item.iconBg} flex items-center justify-center mx-auto mb-2`}>
-                        <Icon className={`w-6 h-6 ${item.iconClass}`} />
+                        <Icon className={`w-6 h-6 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 ${item.iconClass}`} />
                       </div>
                       <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
                     </CardHeader>
@@ -119,10 +119,10 @@ export default function Seafarers() {
         {/* ═══════════ WELLBEING & FAMILY SUPPORT ═══════════ */}
         <section className="py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="glass-card scroll-animate border-teal-500/20 shadow-md shadow-teal-950/5 dark:shadow-teal-950/15">
+            <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-teal-500/20 scroll-animate border-teal-500/20 shadow-md shadow-teal-950/5 dark:shadow-teal-950/15">
               <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-teal-400" />
+                  <Heart className="w-6 h-6 text-teal-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3" />
                 </div>
                 <div className="space-y-1 flex-1">
                   <CardTitle
@@ -167,10 +167,10 @@ export default function Seafarers() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="glass-card h-full scroll-animate border-cyan-500/20 shadow-md shadow-cyan-950/5 dark:shadow-cyan-950/15">
+              <Card className="glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 scroll-animate border-cyan-500/20 shadow-md shadow-cyan-950/5 dark:shadow-cyan-950/15">
                 <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-cyan-400" />
+                    <TrendingUp className="w-6 h-6 text-cyan-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   </div>
                   <div>
                     <CardTitle className="font-headline text-lg font-medium">Career Progression</CardTitle>
@@ -198,11 +198,11 @@ export default function Seafarers() {
               </Card>
 
               <Card
-                className="glass-card h-full scroll-animate scroll-animate-delay-1 border-teal-500/20 shadow-md shadow-teal-950/5 dark:shadow-teal-950/15"
+                className="glass-card h-full group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-teal-500/20 scroll-animate scroll-animate-delay-1 border-teal-500/20 shadow-md shadow-teal-950/5 dark:shadow-teal-950/15"
               >
                 <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-teal-500/10 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-teal-400" />
+                    <Award className="w-6 h-6 text-teal-400 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6" />
                   </div>
                   <div>
                     <CardTitle className="font-headline text-lg font-medium">Training &amp; Development</CardTitle>
@@ -243,11 +243,11 @@ export default function Seafarers() {
               {applicationSteps.map((step, i) => {
                 const Icon = step.icon;
                 return (
-                  <div key={step.number} className={`flex gap-5 scroll-animate scroll-animate-delay-${i + 1}`}>
+                  <div key={step.number} className={`flex gap-5 group cursor-default transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/10 scroll-animate scroll-animate-delay-${i + 1}`}>
                     <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center z-10 shadow-lg shadow-cyan-900/30">
                       <Icon className="w-7 h-7 text-foreground" />
                     </div>
-                    <div className="flex-1 glass-card rounded-xl p-5 ml-1">
+                    <div className="flex-1 glass-card rounded-xl p-5 ml-1 transition-all duration-300 group-hover:shadow-xl group-hover:border-primary/20">
                       <div className="flex items-center gap-3 mb-2">
                         <Badge variant="secondary" className="font-light text-xs">{step.number}</Badge>
                         <h3 className="font-headline text-lg font-medium text-foreground">{step.title}</h3>
@@ -280,7 +280,7 @@ export default function Seafarers() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px] opacity-50" />
           </div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="glass-premium rounded-3xl p-8 sm:p-12 text-center scroll-animate-scale">
+            <div className="glass-premium rounded-3xl p-8 sm:p-12 text-center group transition-all duration-500 hover:border-teal-500/40 hover:shadow-2xl hover:shadow-teal-500/20 scroll-animate-scale">
               <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-teal-500/10 flex items-center justify-center border border-teal-500/20">
                 <Anchor className="w-8 h-8 text-teal-400" />
               </div>
@@ -302,7 +302,7 @@ export default function Seafarers() {
                   href="/contact"
                   className={cn(
                     buttonVariants({ size: "lg", variant: "secondary" }),
-                    "inline-flex font-normal px-8 h-12 text-base",
+                    "inline-flex font-normal px-8 h-12 text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-white/10",
                   )}
                   data-testid="button-contact-seafarers"
                 >

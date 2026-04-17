@@ -54,8 +54,7 @@ function HeroVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-import backgroundPhoto from "@assets/stock_images/stormy_sea_1.png";
-import heroPhoto from "@assets/stock_images/Gemini_Generated_Image_x18mj0x18mj0x18m.png";
+import backgroundPhoto from "@assets/stock_images/Gemini_Generated_Image_x18mj0x18mj0x18m.png";
 
 export default function Home() {
   return (
@@ -68,19 +67,9 @@ export default function Home() {
 
       <div className="relative z-10 w-full">
         {/* ═══════════ HERO ═══════════ */}
-        <section className="py-24 pt-32 relative flex items-center min-h-[90vh] z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="relative rounded-[2.5rem] border border-white/10 overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.4)] min-h-[600px] flex items-center">
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${heroPhoto})` }}
-              />
-              {/* Elegant Gradient Overlays for Text Legibility and Aesthetics */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
-
-              <div className="relative z-10 p-8 sm:p-12 lg:p-16 w-full text-center mx-auto">
-                <h1
+        <section className="py-24 pt-32 relative flex flex-col items-center justify-center min-h-[90vh] z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+            <h1
                   className="font-headline text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.65)]"
                   data-testid="text-hero-tagline"
                 >
@@ -101,7 +90,7 @@ export default function Home() {
                     href="/ship-owners"
                     className={cn(
                       buttonVariants({ size: "lg" }),
-                      "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center",
+                      "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-primary/20",
                     )}
                     data-testid="link-hero-ship-owners"
                   >
@@ -111,17 +100,15 @@ export default function Home() {
                     href="/seafarers"
                     className={cn(
                       buttonVariants({ size: "lg", variant: "secondary" }),
-                      "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center",
+                      "w-full min-w-0 text-center !text-white sm:flex-1 sm:inline-flex sm:items-center sm:justify-center transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-white/10",
                     )}
                     data-testid="link-hero-seafarers"
                   >
                     For Seafarers
                   </Link>
                 </div>
-              </div>
-            </div>
 
-            <div className="mt-10 text-center relative z-10">
+            <div className="mt-20 text-center relative z-10">
               <ChevronDown className="inline-block w-8 h-8 text-white/70 hover:text-white transition-colors animate-bounce" aria-hidden="true" />
             </div>
           </div>
@@ -142,9 +129,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="glass-card text-center" data-testid="card-fresh-vision-people">
+              <Card className="glass-card text-center group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-fresh-vision-people">
                 <CardHeader>
-                  <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
+                  <Users className="w-12 h-12 mx-auto mb-4 text-primary transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3" />
                   <CardTitle className="font-headline">People-First Crewing</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -154,9 +141,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card text-center" data-testid="card-fresh-vision-tech">
+              <Card className="glass-card text-center group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-fresh-vision-tech">
                 <CardHeader>
-                  <TrendingUp className="w-12 h-12 mx-auto mb-4 text-primary" />
+                  <TrendingUp className="w-12 h-12 mx-auto mb-4 text-primary transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3" />
                   <CardTitle className="font-headline">Tech-Enabled Processes</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -166,9 +153,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card text-center" data-testid="card-fresh-vision-partnerships">
+              <Card className="glass-card text-center group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-fresh-vision-partnerships">
                 <CardHeader>
-                  <Award className="w-12 h-12 mx-auto mb-4 text-primary" />
+                  <Award className="w-12 h-12 mx-auto mb-4 text-primary transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-3" />
                   <CardTitle className="font-headline">Long-Term Partnerships</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -192,9 +179,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <Card className="glass-card" data-testid="card-compliance">
+              <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-compliance">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <Shield className="w-10 h-10 text-primary flex-shrink-0" />
+                  <Shield className="w-10 h-10 text-primary flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   <CardTitle className="font-headline text-lg">Compliance & Certifications</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -204,9 +191,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card" data-testid="card-database">
+              <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-database">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <Database className="w-10 h-10 text-primary flex-shrink-0" />
+                  <Database className="w-10 h-10 text-primary flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6" />
                   <CardTitle className="font-headline text-lg">Experienced Crew Database</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -220,7 +207,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/ship-owners"
-                className={cn(buttonVariants({ size: "lg" }), "inline-flex")}
+                className={cn(buttonVariants({ size: "lg" }), "inline-flex transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-primary/20")}
                 data-testid="button-learn-more-owners"
               >
                 Learn More About Our Services
@@ -240,9 +227,9 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card className="glass-card" data-testid="card-fair-contracts">
+              <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-fair-contracts">
                 <CardHeader>
-                  <CheckCircle className="w-10 h-10 text-primary mb-4" />
+                  <CheckCircle className="w-10 h-10 text-primary mb-4 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   <CardTitle className="font-headline">Fair Contracts</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -252,9 +239,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card" data-testid="card-timely-payment">
+              <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-timely-payment">
                 <CardHeader>
-                  <Clock className="w-10 h-10 text-primary mb-4" />
+                  <Clock className="w-10 h-10 text-primary mb-4 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6" />
                   <CardTitle className="font-headline">Timely Payment</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -264,9 +251,9 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="glass-card" data-testid="card-career-support">
+              <Card className="glass-card group cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30" data-testid="card-career-support">
                 <CardHeader>
-                  <TrendingUp className="w-10 h-10 text-primary mb-4" />
+                  <TrendingUp className="w-10 h-10 text-primary mb-4 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6" />
                   <CardTitle className="font-headline">Career Support & Training</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -280,7 +267,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/seafarers"
-                className={cn(buttonVariants({ size: "lg" }), "inline-flex")}
+                className={cn(buttonVariants({ size: "lg" }), "inline-flex transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg hover:shadow-primary/20")}
                 data-testid="button-learn-more-seafarers"
               >
                 Learn More About Opportunities
@@ -291,7 +278,7 @@ export default function Home() {
         <section className="py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <Card className="glass-premium p-12 border-2">
+            <Card className="glass-premium p-12 border-2 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/20 group">
               <h2 className="font-headline text-2xl sm:text-3xl font-bold mb-6" data-testid="heading-cta">
                 Ready to Partner with AURA SEA?
               </h2>
@@ -300,7 +287,7 @@ export default function Home() {
               </p>
               <Link
                 href="/contact"
-                className={cn(buttonVariants({ size: "lg" }), "inline-flex text-lg px-10")}
+                className={cn(buttonVariants({ size: "lg" }), "inline-flex text-lg px-10 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-xl hover:shadow-primary/20")}
                 data-testid="button-contact-aura-sea"
               >
                 Contact AURA SEA
